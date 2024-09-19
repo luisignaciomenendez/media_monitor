@@ -3,7 +3,7 @@ from dash import dcc, html
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 import pandas as pd
-
+import os
 # Assuming df_group and df_entropy are already created
 
 df_group=pd.read_csv('./data/topic_composition.csv')
