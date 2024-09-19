@@ -21,6 +21,8 @@ channel_colors = {
 }
 # Initialize Dash app
 app = dash.Dash(__name__)
+server = app.server  # Use this for gunicorn
+
 
 # Function to get topic composition for a specific date
 def get_topic_composition(date, df):
