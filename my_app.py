@@ -8,8 +8,12 @@ import pandas as pd
 import os
 # Assuming df_group and df_entropy are already created
 
-df_group=pd.read_csv('./data/topic_composition.csv')
-df_entropy=pd.read_csv('./data/entropy.csv')
+df_group=pd.read_csv('topic_composition.csv')
+df_entropy=pd.read_csv('entropy.csv')
+
+
+#%% 
+
 
 df_group['date'] = pd.to_datetime(df_group['date']).dt.date  # Ensure the date column is in the correct format
 df_entropy['date'] = pd.to_datetime(df_entropy['date']).dt.date  # Ensure the date column is in the correct format
