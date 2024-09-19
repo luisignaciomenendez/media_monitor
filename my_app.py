@@ -32,11 +32,12 @@ server = app.server  # Use this for gunicorn
 
 # Function to get topic composition for a specific date
 def get_topic_composition(date, df):
-    df_filtered = df[df['date'] == date]
+    df_filtered = df[df['date'] == date.date()]  # Use date.date() to ensure proper comparison
     topics = df_filtered['words_topic'].tolist()
     rel_times = df_filtered['rel_time'].tolist()
     channels = df_filtered['channel'].tolist()
     return topics, rel_times, channels
+
 
 # Layout of the app
 app.layout = html.Div([
