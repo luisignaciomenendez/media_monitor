@@ -1,3 +1,5 @@
+#%% 
+
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
@@ -72,26 +74,18 @@ def update_entropy_plot(_):
     [Input('entropy-graph', 'clickData')]  # Get the clicked point from entropy graph
 )
 
-
 def update_topic_composition(clickData):
     if clickData is None:
         return go.Figure()  # Empty figure before any click
-
     # Get clicked date
     clicked_date = pd.to_datetime(clickData['points'][0]['x'])
-    
     # Get topic composition for clicked date
     topics, rel_times, channels = get_topic_composition(clicked_date, df_group)
-
     # Create bubble plot
     fig = go.Figure()
-
-    # Add trace with channel-specific bubble colors
-    # Create bar plot for each channel and topic
-
+    
     for channel in channel_colors.keys():
-        channel_indices = [i for i, ch in enumerate(channels) if ch == channel]
-        
+        channel_indices = [i for i, ch in enumerate(channels) if ch == channel]   
         if channel_indices:
             # Sort topics and relative times in descending order
             sorted_indices = sorted(channel_indices, key=lambda i: rel_times[i], reverse=True)
@@ -126,7 +120,12 @@ def update_topic_composition(clickData):
 
     return fig
 
-# Run the app
 if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8050)))
+    app.run_server(debug=True,port=8051)
+
+#%% 
+
+# Run the app
+# if __name__ == '__main__':
+#     app.run_server(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 8050)))
 
