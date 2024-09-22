@@ -6,6 +6,7 @@ from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
+import os
 # Assuming df_group and df_entropy are already created
 
 df_group=pd.read_csv('topic_composition.csv')
@@ -25,6 +26,15 @@ channel_colors = {
     't5': 'blue',
     'cuatro': 'red'
 }
+
+channel_positions = {
+    'tve': (0, 0),      # Center for TVE
+    'a3': (3, 0),       # Center for A3
+    'la6': (-3, 0),     # Center for La6
+    't5': (0, 3),       # Center for T5
+    'cuatro': (0, -3),  # Center for Cuatro
+}
+
 # Initialize Dash app
 app = dash.Dash(__name__)
 server = app.server  # Use this for gunicorn
@@ -84,7 +94,7 @@ def update_topic_composition(clickData):
         return go.Figure()  # Empty figure before any click
 
     # Get clicked date
-    clicked_date = pd.to_datetime(clickData['points'][0]['x']).date()
+    clicked_date = pd.to_datetime(clickData['points'][0]['x'])
 
     # Get topic composition for clicked date
     topics, rel_times, channels = get_topic_composition(clicked_date, df_group)
@@ -139,11 +149,12 @@ def update_topic_composition(clickData):
     return fig
 
 if __name__ == '__main__':
-    app.run_server(debug=True,port=8053)
+    app.run_server(debug=True,port=8051)
 
 #%% 
 
 # Run the app
+
 # if __name__ == '__main__':
 #     app.run_server(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 8050)))
 
