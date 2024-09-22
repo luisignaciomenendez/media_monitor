@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js">
+</script>
+  
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,8 +79,8 @@
     <h2>Methodology</h2>
 
     <div class="methodology-section">
-        <h3>Overview</h3>
-        <p>This diagram outlines our process for analyzing political tone and media coverage in Spanish TV news programs. It includes data collection, audio extraction, transcription, and topic modeling, followed by tone classification using advanced natural language models.</p>
+        <h3>Pipeline</h3>
+        <p>This diagram outlines our pipeline for analyzing political tone and media coverage in Spanish TV news programs. It includes data collection, audio extraction, transcription, and topic modeling, followed by tone classification using advanced natural language models.</p>
     </div>
 
     <div class="methodology-section image-container">
@@ -88,17 +92,37 @@
         <p>
             - <strong>Data Collection</strong>: We gather data from TV channels such as TVE, Antena 3, laSexta, and Telecinco, stored as MP4 video files.<br>
             - <strong>Audio Extraction</strong>: Using FFmpeg, the audio is extracted into WAV format.<br>
-            - <strong>Speech-to-Text</strong>: The audio is transcribed to text.<br>
+            - <strong>Speech-to-Text</strong>: The audio is transcribed to text using google speech2text engine.<br>
             - <strong>Topic Modeling</strong>: Using BERTopic, we identify major topics from the transcribed speech.<br>
-            - <strong>Tone Classification</strong>: With models like GPT, we classify political tone (-1 for negative, 0 for neutral, and 1 for positive).
+            - <strong>Tone Classification</strong>:Using the last version of  ChatGPT4, we classify political tone (-1 for negative, 0 for neutral, and 1 for positive) for each political party in Spain.
         </p>
         
     </div>
+
+    <div class="Entropy calulation">
+        <h3>Entropy Calulation</h3>
+        <p>
+            Entropy has been used in <a href="https://ideas.repec.org/p/cam/camdae/2131.html" target="_blank">previous works</a> as a measure of news disagreemnt across outlets 
+            
+            . Frist, we filter dates where at least more than 50% of the outlets are present to avoid missing values.
+            Then, we calculate the relative minutes that each outlet devotes to a story and then calculate entropy: 
+
+    
+        <p>                
+            \[
+            entropy_{d}=-\sum_{s=1}^{S}\sum_{c} \frac{time_{scd}}{total\_time_{cd}} \times log\left(\frac{time_{scd}}{total\_time_{cd}}\right)
+            \]            </p>
+        </p>
+Days with lower entropy represent higher agreement in the relevance of the topics of the day.
+
+    </div>
+
 </div>
 
-<footer>
-    <p>Contact us: info@mediainsights.com</p>
-</footer>
+
+
+
+
 
 </body>
 </html>
