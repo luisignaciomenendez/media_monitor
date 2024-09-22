@@ -1,17 +1,19 @@
-    
 #%% 
-
 
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 import pandas as pd
-import numpy as np
+import os
+# Assuming df_group and df_entropy are already created
 
-# Load your data (use your path)
-df_group = pd.read_csv('/Users/luisignaciomenendezgarcia/Dropbox/MediaBias/media_monitor/webpage/data/topic_composition.csv')
-df_entropy = pd.read_csv('/Users/luisignaciomenendezgarcia/Dropbox/MediaBias/media_monitor/webpage/data/entropy.csv')
+df_group=pd.read_csv('topic_composition.csv')
+df_entropy=pd.read_csv('entropy.csv')
+
+
+#%% 
+
 
 # Ensure dates are in the correct format
 df_group['date'] = pd.to_datetime(df_group['date']).dt.date
