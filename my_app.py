@@ -78,7 +78,7 @@ def update_entropy_plot(_):
         xaxis_title="Date",
         yaxis_title="Entropy",
         hovermode='closest',
-        template="plotly_dark"
+        template="plotly"
     )
 
     return fig
@@ -155,7 +155,7 @@ def update_topic_composition(clickData):
         yaxis_showticklabels=False,  # Hide y-axis labels
         yaxis_title=None,  # Remove y-axis title
         height=600,  # Set height to ensure proper display
-        template="plotly_dark"
+        template="plotly"
     )
 
     return fig
