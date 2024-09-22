@@ -14,11 +14,9 @@ df_entropy=pd.read_csv('entropy.csv')
 #%% 
 
 
-# Ensure dates are in the correct format
-df_group['date'] = pd.to_datetime(df_group['date']).dt.date
-df_entropy['date'] = pd.to_datetime(df_entropy['date']).dt.date
+df_group['date'] = pd.to_datetime(df_group['date']).dt.date  # Ensure the date column is in the correct format
+df_entropy['date'] = pd.to_datetime(df_entropy['date']).dt.date  # Ensure the date column is in the correct format
 
-# Define colors for channels
 channel_colors = {
     'tve': 'purple',
     'a3': 'orange',
@@ -26,32 +24,25 @@ channel_colors = {
     't5': 'blue',
     'cuatro': 'red'
 }
-
-# Cluster centers for each channel (adjust values to customize positions)
-channel_positions = {
-    'tve': (0, 0),      # Center for TVE
-    'a3': (3, 0),       # Center for A3
-    'la6': (-3, 0),     # Center for La6
-    't5': (0, 3),       # Center for T5
-    'cuatro': (0, -3),  # Center for Cuatro
-}
-
 # Initialize Dash app
 app = dash.Dash(__name__)
+server = app.server  # Use this for gunicorn
+
 
 # Function to get topic composition for a specific date
 def get_topic_composition(date, df):
-    df_filtered = df[df['date'] == date]
+    df_filtered = df[df['date'] == date.date()]  # Use date.date() to ensure proper comparison
     topics = df_filtered['words_topic'].tolist()
     rel_times = df_filtered['rel_time'].tolist()
     channels = df_filtered['channel'].tolist()
     return topics, rel_times, channels
 
+
 # Layout of the app
 app.layout = html.Div([
     html.H1("Interactive Topic Composition"),
     dcc.Graph(id='entropy-graph'),  # Entropy time series plot
-    dcc.Graph(id='topic-composition'),  # Topic composition bubble plot
+    dcc.Graph(id='topic-composition'),  # Topic composition plot
 ])
 
 # Create the initial entropy time series plot
@@ -80,72 +71,65 @@ def update_entropy_plot(_):
     )
 
     return fig
-import numpy as np
 
+# Callback to update the topic composition plot based on click
 @app.callback(
     Output('topic-composition', 'figure'),
-    [Input('entropy-graph', 'clickData')]
+    [Input('entropy-graph', 'clickData')]  # Get the clicked point from entropy graph
 )
+
 def update_topic_composition(clickData):
     if clickData is None:
         return go.Figure()  # Empty figure before any click
-
     # Get clicked date
-    clicked_date = pd.to_datetime(clickData['points'][0]['x']).date()
-
+    clicked_date = pd.to_datetime(clickData['points'][0]['x'])
     # Get topic composition for clicked date
     topics, rel_times, channels = get_topic_composition(clicked_date, df_group)
-
     # Create bubble plot
     fig = go.Figure()
-
-    # Get unique topics to create sub-clusters within each channel
-    unique_topics = list(set(topics))
-
+    
     for channel in channel_colors.keys():
-        channel_indices = [i for i, ch in enumerate(channels) if ch == channel]
-
+        channel_indices = [i for i, ch in enumerate(channels) if ch == channel]   
         if channel_indices:
-            # Get cluster center for this channel
-            center_x, center_y = channel_positions[channel]
+            # Sort topics and relative times in descending order
+            sorted_indices = sorted(channel_indices, key=lambda i: rel_times[i], reverse=True)
+            
+            # Combine topic words and percentages for display inside the bars
+            text_labels = [f"{topics[i]}: {rel_times[i]:.2%}" for i in sorted_indices]
+            
+            fig.add_trace(go.Bar(
+                x=[channel] * len(sorted_indices),  # One bar per channel
+                y=[rel_times[i] for i in sorted_indices],  # Stack relative times of topics, sorted
+                text=text_labels,  # Display topic words and percentage inside the bar
+                textposition='inside',  # Show text inside the bar
+                name=channel,
+                marker=dict(
+                    color=channel_colors[channel]  # Channel-specific color
+                ),
+                width=0.7,  # Make bars wider
+                showlegend=True
+            ))
 
-            # For each unique topic, create sub-clusters with some offsets
-            # Adjust the random offsets for more organic placement
-            for i in channel_indices:
-                # Use more random offsets not strictly tied to rel_time
-                topic_offset_x = np.random.uniform(-1, 1) * (1 - rel_times[i]) * 2  # Randomize x positioning
-                topic_offset_y = np.random.uniform(-1, 1) * (1 - rel_times[i]) * 2  # Randomize y positioning
-
-                fig.add_trace(go.Scatter(
-                    x=[center_x + topic_offset_x],  # Position relative to channel center with random x offset
-                    y=[center_y + topic_offset_y],  # Position relative to channel center with random y offset
-                    mode='markers',
-                    marker=dict(
-                        size=[rel_times[i] * 1200],  # Bubble size proportional to rel_time
-                        color=channel_colors[channel],  # Channel-specific color
-                        opacity=0.8,
-                        sizemode='area'
-                    ),
-                    name=f"{channel}: {topics[i]}",
-                    text=[f"{topics[i]}: {rel_times[i]:.2%}"],  # Show topic and percentage on hover
-                    hoverinfo='text',
-                    showlegend=False
-                ))
-
-
-
+    # Update layout to refine the plot
     fig.update_layout(
-        title=f"Topic Composition for {clicked_date}",
-        xaxis_title=None,  # Remove x-axis title
-        xaxis_showticklabels=False,  # Hide x-axis labels
-        yaxis_showticklabels=False,  # Hide y-axis labels
-        yaxis_title=None,  # Remove y-axis title
+        title="Topic Composition by Channel (Ordered by Relative Time)",
+        xaxis_title="Channel",
+        yaxis_title="Relative Time Spent on Topics",
+        bargap=0.1,  # Reduce the gap between bars
+        barmode='stack',  # Stack the bars
+        uniformtext_minsize=10,  # Uniform text size
+        uniformtext_mode='hide',  # Hide text that doesn’t fit
         template="plotly_dark"
     )
 
     return fig
 
+if __name__ == '__main__':
+    app.run_server(debug=True,port=8053)
+
+#%% 
 
 # Run the app
-if __name__ == '__main__':
-    app.run_server(debug=True, port=8052)
+# if __name__ == '__main__':
+#     app.run_server(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 8050)))
+
