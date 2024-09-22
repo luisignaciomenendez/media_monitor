@@ -136,7 +136,7 @@ def update_topic_composition(clickData):
                 y=y_positions,  # Position near the cluster center
                 mode='markers',
                 marker=dict(
-                    size=[rel_times[i] * 1200 for i in channel_indices],  # Bubble size proportional to rel_time
+                    size=[rel_times[i] * 3000 for i in channel_indices],  # Bubble size proportional to rel_time
                     color=channel_colors[channel],  # Channel-specific color
                     opacity=0.8,
                     sizemode='area'
@@ -154,6 +154,7 @@ def update_topic_composition(clickData):
         xaxis_showticklabels=False,  # Hide x-axis labels
         yaxis_showticklabels=False,  # Hide y-axis labels
         yaxis_title=None,  # Remove y-axis title
+        height=600,  # Set height to ensure proper display
         template="plotly_dark"
     )
 
