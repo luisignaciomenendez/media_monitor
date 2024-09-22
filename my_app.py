@@ -106,34 +106,45 @@ def update_topic_composition(clickData):
     unique_topics = list(set(topics))
 
     for channel in channel_colors.keys():
+        fig.add_trace(go.Scatter(
+            x=[None],  # No actual data for the legend trace
+            y=[None],  # No actual data for the legend trace
+            mode='markers',
+            marker=dict(
+                size=10,  # Dummy size for the legend
+                color=channel_colors[channel]
+            ),
+            name=channel,  # Show only the channel name in the legend
+            showlegend=True  # Enable legend for this dummy trace
+        ))
+
+# Now proceed with adding the actual bubble traces
+    for channel in channel_colors.keys():
         channel_indices = [i for i, ch in enumerate(channels) if ch == channel]
 
         if channel_indices:
             # Get cluster center for this channel
             center_x, center_y = channel_positions[channel]
 
-            # For each unique topic, create sub-clusters with some offsets
-            # Adjust the random offsets for more organic placement
-            for i in channel_indices:
-                # Use more random offsets not strictly tied to rel_time
-                topic_offset_x = np.random.uniform(-1, 1) * (1 - rel_times[i]) * 2  # Randomize x positioning
-                topic_offset_y = np.random.uniform(-1, 1) * (1 - rel_times[i]) * 2  # Randomize y positioning
+            # Adjust positions for more random distribution around the center
+            x_positions = [center_x + np.random.uniform(-1, 1) for _ in channel_indices]
+            y_positions = [center_y + np.random.uniform(-1, 1) for _ in channel_indices]
 
-                fig.add_trace(go.Scatter(
-                    x=[center_x + topic_offset_x],  # Position relative to channel center with random x offset
-                    y=[center_y + topic_offset_y],  # Position relative to channel center with random y offset
-                    mode='markers',
-                    marker=dict(
-                        size=[rel_times[i] * 1200],  # Bubble size proportional to rel_time
-                        color=channel_colors[channel],  # Channel-specific color
-                        opacity=0.8,
-                        sizemode='area'
-                    ),
-                    name=f"{channel}: {topics[i]}",
-                    text=[f"{topics[i]}: {rel_times[i]:.2%}"],  # Show topic and percentage on hover
-                    hoverinfo='text',
-                    showlegend=False
-                ))
+            # Add actual bubble trace without showing the legend
+            fig.add_trace(go.Scatter(
+                x=x_positions,  # Position near the cluster center
+                y=y_positions,  # Position near the cluster center
+                mode='markers',
+                marker=dict(
+                    size=[rel_times[i] * 1200 for i in channel_indices],  # Bubble size proportional to rel_time
+                    color=channel_colors[channel],  # Channel-specific color
+                    opacity=0.8,
+                    sizemode='area'
+                ),
+                text=[f"{topics[i]}: {rel_times[i]:.2%}" for i in channel_indices],  # Show topic and percentage on hover
+                hoverinfo='text',
+                showlegend=False  # Disable legend for the actual bubble trace
+            ))
 
 
 
