@@ -6,7 +6,11 @@ import numpy as np
 import plotly.graph_objects as go
 
 # Load your dataset (update the CSV path if necessary)
-df = pd.read_csv('final_22_01_25_chatgpt.csv')
+#read parquet. 
+
+df = pd.read_parquet('final_22_01_25_chatgpt_reduced.parquet')
+
+
 df['date'] = pd.to_datetime(df['date'])
 
 # Define tone metrics for individual parties and their labels
