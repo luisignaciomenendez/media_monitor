@@ -1,3 +1,3 @@
-heroku config:set PROCFILE=Procfile.coverage --app spanish-media-monitor
+web: gunicorn my_app:server
 
 
