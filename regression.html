@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coverage</title>
+    <title>Regression Analysis</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,10 +38,12 @@
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
         iframe {
             width: 100%;
             height: 600px;
+            border: none;
         }
         @media (max-width: 768px) {
             iframe {
@@ -72,15 +74,17 @@
 </nav>
 
 <div class="content">
-    <h2>Bias detector</h2>
+    <h2>Political Tone</h2>
     <div class="chart-container">
-        <h3>Coverage Composition</h3>
-        <p> 
-            Assessing media bias is inherently challenging and often tied to a subjective notion of truth. Here, we propose an agnostic measure that focuses on variations in how Spanish outlets cover the same stories. This metric doesn’t explicitly reveal bias but helps identify topics with lower consensus. The interactive plot visualizes the entropy score for each day: lower scores represent more agreement among outlets on key topics. Click on any date to explore topic compositions. For further details, refer to the Methodology section.
-        </p>
-        <iframe src="https://spanish-media-monitor-7458bc4bd3d9.herokuapp.com" frameborder="0"></iframe>
+        <h3>Monthly Average Tone by Party</h3>
+        <iframe src="./figures/monthly_channel_regression_dropdown.html" style="width: 100vw; height: 50vh;" frameborder="0"></iframe>
+
     </div>
 </div>
+
+<footer>
+    <p>&copy; 2025 TV News Media Monitor</p>
+</footer>
 
 </body>
 </html>
