@@ -1,87 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regression Analysis</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: space-around;
-            background-color: #34495e;
-            padding: 15px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .content {
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .chart-container {
-            background-color: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-        }
-        @media (max-width: 768px) {
-            iframe {
-                height: 300px;
-            }
-        }
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regression Analysis</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: #34495e;
+      padding: 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px 10px;
+    }
+    .content {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .chart-container {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      overflow-x: auto;  /* Allow horizontal scroll if necessary */
+    }
+    iframe {
+      width: 100%;
+      min-width: 320px;   /* Prevent the iframe from becoming too narrow */
+      height: 600px;
+      border: none;
+    }
+    @media (max-width: 768px) {
+      iframe {
+        height: 400px;  /* Adjust height for smaller screens */
+      }
+    }
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>TV News Media Monitor</h1>
-    <p>Explore media coverage and bias trends in Spanish TV News Programs</p>
+  <h1>TV News Media Monitor</h1>
+  <p>Explore media coverage and bias trends in Spanish TV News Programs</p>
 </header>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="coverage.html">Media Bias</a>
-    <a href="regression.html">Political Tone</a>
-    <a href="methodology.html">Methodology</a>
+  <a href="index.html">Home</a>
+  <a href="coverage.html">Media Bias</a>
+  <a href="regression.html">Political Tone</a>
+  <a href="methodology.html">Methodology</a>
 </nav>
 
 <div class="content">
-    <h2>Political Tone</h2>
-    <div style="max-width: 1200px; margin: auto;">
-        <iframe src="./figures/monthly_channel_regression_dropdown.html" style="width: 100%; height: 600px;" frameborder="0"></iframe>
-      </div>
+  <h2>Political Tone</h2>
+  <div class="chart-container">
+    <h3>Monthly Regression Analysis</h3>
+    <p>
+      This interactive graph displays the monthly regression coefficients (with error bands) for each channel,
+      based on a regression that uses channel dummies (no constant) for a given political tone measure.
+      Select the desired party from the dropdown menu to view its average tone and see which channels are deviating the most.
+    </p>
+    <iframe src="./figures/monthly_channel_regression_dropdown.html"></iframe>
+  </div>
 </div>
 
 <footer>
-    <p>&copy; 2025 TV News Media Monitor</p>
+  <p>&copy; 2025 TV News Media Monitor</p>
 </footer>
 
 </body>
