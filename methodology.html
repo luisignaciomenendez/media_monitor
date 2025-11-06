@@ -1,143 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<script type="text/javascript" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js">
-</script>
-  
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Methodology</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: space-around;
-            background-color: #34495e;
-            padding: 15px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .content {
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .methodology-section {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .image-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodology – SMM</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js">
+  </script>
 </head>
+
 <body>
 
-<header>
-    <h1>TV News Media Monitor</h1>
-    <p>Methodology Behind Media Analysis</p>
-</header>
+  <!-- HEADER -->
+  <header>
+    <img src="main_logo.png" alt="LOGO_Banner" class="banner">
+  <!--  <p>Methodology Behind Media Analysis and Computational Monitoring</p>-->
+  </header>
 
-
-<nav>
+  <!-- NAVIGATION -->
+  <nav>
     <a href="index.html">Home</a>
     <a href="coverage.html">Media Agreement</a>
-    <a href="regression.html">Political Tone</a>
-    <a href="methodology.html">Methodology</a>
+    <a href="mentions.html">Political Mentions</a>
+    <a href="politicaltone.html">Political Tone</a>
+    <a href="methodology.html" class="active">Methodology</a>
+    <a href="about.html">About Us</a>
   </nav>
 
-<div class="content">
+  <!-- MAIN CONTENT -->
+  <div class="content">
     <h2>Methodology</h2>
+    <p>
+      This page describes the analytical and computational methods behind SMM's continuous monitoring of Spanish television news.
+      The pipeline integrates data engineering, machine learning, and natural language processing to study political tone, coverage diversity, and cross-outlet agreement.
+    </p>
 
-    <div class="methodology-section">
-        <h3>Pipeline</h3>
-        <p>This diagram outlines our pipeline for analyzing political tone and media coverage in Spanish TV news programs. It includes data collection, audio extraction, transcription, and topic modeling, followed by tone classification using advanced natural language models.</p>
-    </div>
-
-    <div class="methodology-section image-container">
+    <!-- PIPELINE SECTION -->
+    <div class="chart-container">
+      <h3>Analytical Pipeline</h3>
+      <p>
+        The diagram below outlines the key stages of our workflow — from raw data collection to content classification and visualization.
+      </p>
+      <div class="image-container">
         <img src="figures/pipeline3.png" alt="Media Monitoring Pipeline">
+      </div>
     </div>
 
-    <div class="methodology-section">
-        <h3>Data Collection and Processing Steps</h3>
-        <p>
-            - <strong>Data Collection</strong>: We gather data from TV channels such as TVE, Antena 3, laSexta, and Telecinco, stored as MP4 video files.<br>
-            - <strong>Audio Extraction</strong>: Using FFmpeg, the audio is extracted into WAV format.<br>
-            - <strong>Speech-to-Text</strong>: The audio is transcribed to text using google speech2text engine.<br>
-            - <strong>Topic Modeling</strong>: Using BERTopic, we identify major topics from the transcribed speech.<br>
-            - <strong>Tone Classification</strong>:Using the last version of  ChatGPT4, we classify political tone (-1 for negative, 0 for neutral, and 1 for positive) for each political party in Spain.
-        </p>
-        
+    <!-- DATA PROCESSING SECTION -->
+    <div class="chart-container">
+      <h3>Data Collection and Processing Steps</h3>
+      <p>
+        <strong>1. Data Collection:</strong> News videos are gathered from major Spanish channels, including TVE, Antena 3, laSexta, and Telecinco.<br>
+        <strong>2. Audio Extraction:</strong> Each video is converted to WAV format using <code>FFmpeg</code>.<br>
+        <strong>3. Speech-to-Text:</strong> We use Google’s Speech-to-Text API for automatic transcription.<br>
+        <strong>4. Topic Modeling:</strong> Topics are extracted using <strong>BERTopic</strong>, a transformer-based clustering method.<br>
+        <strong>5. Tone Classification:</strong> Large Language Models (LLMs, currently GPT-4) assign tone scores to each political reference (−1 negative, 0 neutral, 1 positive).
+      </p>
     </div>
 
-    <div class="Entropy calulation">
-        <h3>Entropy Calulation</h3>
-        <p>
-            Entropy has been used in <a href="https://ideas.repec.org/p/cam/camdae/2131.html" target="_blank">previous works</a> as a measure of news disagreemnt across outlets 
-            
-            . Frist, we filter dates where at least more than 50% of the outlets are present to avoid missing values.
-            Then, we calculate the relative minutes that each outlet devotes to a story and then calculate entropy: 
+    <!-- ENTROPY SECTION -->
+    <div class="chart-container">
+      <h3>Entropy Calculation</h3>
+      <p>
+        Entropy has been widely used as a measure of <em>news disagreement</em> across outlets
+        (see, for example, <a href="https://ideas.repec.org/p/cam/camdae/2131.html" target="_blank">Gentzkow et al. 2023</a>).
+        First, we filter dates with coverage from at least 50% of the monitored outlets to avoid bias due to missing data.
+        Then, for each day \(d\), we compute the share of time each channel \(c\) devotes to story \(s\):
+      </p>
 
-    
-        <p>                
-            \[
-            entropy_{d}=-\sum_{s=1}^{S}\sum_{c} \frac{time_{scd}}{total\_time_{cd}} \times log\left(\frac{time_{scd}}{total\_time_{cd}}\right)
-            \]            </p>
-        </p>
-Days with lower entropy represent higher agreement in the relevance of the topics of the day.
+      <p style="text-align:center;">
+        \[
+        \text{entropy}_{d}
+        = -\sum_{s=1}^{S}\sum_{c}
+        \frac{\text{time}_{scd}}{\text{total\_time}_{cd}}
+        \times \log\!\left(\frac{\text{time}_{scd}}{\text{total\_time}_{cd}}\right)
+        \]
+      </p>
 
+      <p>
+        Lower entropy corresponds to higher similarity in coverage—i.e., stronger alignment across outlets in the topics emphasized that day.
+      </p>
     </div>
 
+    <!-- POLITICAL TONE SECTION -->
+    <div class="chart-container">
+      <h3>Political Tone Measurement</h3>
+      <p>
+        Political tone is computed as the average of LLM-classified tone values across all mentions of each party within a given period.
+        For every channel-party pair, we calculate:
+      </p>
 
-    <div class="content">
-        <h2>Political Tone</h2>
-        <div class="chart-container">
-            <h3>Monthly Average Tone</h3>
-            <p>
-                The monthly average tone represents the mean tone with standard errors for each channel-party. Tone is calculated by classifying the content of the news using LLMs into three categories: positive, negative, and neutral. The monthly average tone is calculated by taking the mean of the daily tone for each channel-party combination. 
-            </p>
-        </div>
+      <p style="text-align:center;">
+        \[
+        \text{Tone}_{c,p,t}
+        = \frac{1}{N_{c,p,t}} \sum_{i=1}^{N_{c,p,t}} \text{tone}_{i}
+        \]
+      </p>
+
+      <p>
+        where \(N_{c,p,t}\) denotes the number of mentions of party \(p\) in channel \(c\) during time \(t\).
+        Monthly tone averages are then visualized with confidence intervals to show systematic differences in sentiment across networks.
+      </p>
     </div>
-    
 
+  </div>
 
-</div>
-
-
-
-
-
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <img src="logo.png" alt="SMM Logo Small">
+      &copy; 2025 <span>SMM</span> — Spanish Media Monitor
+    </p>
+  </footer>
 
 </body>
 </html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js">
+</script>
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodology</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #34495e;
+            padding: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .methodology-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TV News Media Monitor</h1>
+    <p>Methodology Behind Media Analysis</p>
+</header>
+
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="coverage.html">Media Agreement</a>
+    <a href="regression.html">Political Tone</a>
+    <a href="methodology.html">Methodology</a>
+  </nav>
+
+<div class="content">
+    <h2>Methodology</h2>
+
+    <div class="methodology-section">
+        <h3>Pipeline</h3>
+        <p>This diagram outlines our pipeline for analyzing political tone and media coverage in Spanish TV news programs. It includes data collection, audio extraction, transcription, and topic modeling, followed by tone classification using advanced natural language models.</p>
+    </div>
+
+    <div class="methodology-section image-container">
+        <img src="figures/pipeline3.png" alt="Media Monitoring Pipeline">
+    </div>
+
+    <div class="methodology-section">
+        <h3>Data Collection and Processing Steps</h3>
+        <p>
+            - <strong>Data Collection</strong>: We gather data from TV channels such as TVE, Antena 3, laSexta, and Telecinco, stored as MP4 video files.<br>
+            - <strong>Audio Extraction</strong>: Using FFmpeg, the audio is extracted into WAV format.<br>
+            - <strong>Speech-to-Text</strong>: The audio is transcribed to text using google speech2text engine.<br>
+            - <strong>Topic Modeling</strong>: Using BERTopic, we identify major topics from the transcribed speech.<br>
+            - <strong>Tone Classification</strong>:Using the last version of  ChatGPT4, we classify political tone (-1 for negative, 0 for neutral, and 1 for positive) for each political party in Spain.
+        </p>
+        
+    </div>
+
+    <div class="Entropy calulation">
+        <h3>Entropy Calulation</h3>
+        <p>
+            Entropy has been used in <a href="https://ideas.repec.org/p/cam/camdae/2131.html" target="_blank">previous works</a> as a measure of news disagreemnt across outlets 
+            
+            . Frist, we filter dates where at least more than 50% of the outlets are present to avoid missing values.
+            Then, we calculate the relative minutes that each outlet devotes to a story and then calculate entropy: 
+
+    
+        <p>                
+            \[
+            entropy_{d}=-\sum_{s=1}^{S}\sum_{c} \frac{time_{scd}}{total\_time_{cd}} \times log\left(\frac{time_{scd}}{total\_time_{cd}}\right)
+            \]            </p>
+        </p>
+Days with lower entropy represent higher agreement in the relevance of the topics of the day.
+
+    </div>
+
+
+    <div class="content">
+        <h2>Political Tone</h2>
+        <div class="chart-container">
+            <h3>Monthly Average Tone</h3>
+            <p>
+                The monthly average tone represents the mean tone with standard errors for each channel-party. Tone is calculated by classifying the content of the news using LLMs into three categories: positive, negative, and neutral. The monthly average tone is calculated by taking the mean of the daily tone for each channel-party combination. 
+            </p>
+        </div>
+    </div>
+    
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>

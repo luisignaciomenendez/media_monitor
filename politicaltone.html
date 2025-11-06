@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Political Tone – SMM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="main_logo.png" alt="LOGO_Banner" class="banner">
+    <!--<p>Exploring sentiment and bias in Spanish television news coverage.</p>-->
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="coverage.html">Media Agreement</a>
+    <a href="mentions.html">Political Mentions</a>
+    <a href="regression.html" class="active">Political Tone</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="about.html">About Us</a>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+    <h2>Political Tone Analysis</h2>
+    <p>
+      This section studies how Spanish television channels portray political actors and parties over time.
+      Using large language models to classify tone (negative, neutral, or positive), we estimate systematic
+      differences in sentiment across outlets and political affiliations.
+    </p>
+
+    <div class="chart-container">
+      <h3>Monthly Regression Results</h3>
+      <p>
+        The interactive graph below shows regression coefficients estimated from channel-specific models
+        (without a constant) for each party’s tone measure.  
+        Select a political party from the dropdown menu to view how average tone varies across channels
+        and months.  
+        Shaded regions display 95% confidence intervals.
+      </p>
+
+      <iframe src="./figures/monthly_channel_regression_dropdown.html"></iframe>
+    </div>
+
+    <div class="chart-container">
+      <h3>Interpretation</h3>
+      <p>
+        Positive coefficients indicate that a channel’s coverage of a given party is, on average,
+        more favorable than the baseline across the sample period, while negative values reflect more critical tone.
+        This analysis helps identify both structural differences and temporal shifts in media bias.
+      </p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <img src="logo.png" alt="SMM Logo Small">
+      &copy; 2025 <span>SMM</span> — Spanish Media Monitor
+    </p>
+  </footer>
+
+</body>
+</html>

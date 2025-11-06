@@ -3,96 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coverage</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-    header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      background-color: #34495e;
-      padding: 15px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 5px 10px;
-    }
-    .content {
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .chart-container {
-      background-color: white;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-    }
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-    }
-    @media (max-width: 768px) {
-      iframe {
-        height: 400px; /* Adjust as needed for smaller screens */
-      }
-    }
-    footer {
-      background-color: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 30px;
-    }
-  </style>
+  <title>Media Agreement – SMM</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>TV News Media Monitor</h1>
-  <p>Explore media coverage and bias trends in Spanish TV News Programs</p>
-</header>
+  <!-- HEADER -->
+  <header>
+    <img src="main_logo.png" alt="LOGO_Banner" class="banner">
+      </header>
 
-
-<nav>
+  <!-- NAVIGATION -->
+  <nav>
     <a href="index.html">Home</a>
-    <a href="coverage.html">Media Agreement</a>
-    <a href="regression.html">Political Tone</a>
+    <a href="coverage.html" class="active">Media Agreement</a>
+    <a href="mentions.html">Political Mentions</a>
+    <a href="politicaltone.html">Political Tone</a>
     <a href="methodology.html">Methodology</a>
+    <a href="about.html">About Us</a>
   </nav>
 
-<div class="content">
-  <h2>News agreement</h2>
-  <div class="chart-container">
-    <h3>Coverage Composition</h3>
+  <!-- MAIN CONTENT -->
+  <div class="content">
+    <h2>Media Agreement and Coverage Diversity</h2>
     <p>
-      The graph below show the entropy time series of the coverage composition of the news programs.
-      The entropy is a measure of the diversity of the coverage. A higher value indicates a more diverse coverage, while a lower value indicates a more homogeneous coverage.
-      By clicking on a specified data you can explore the topics covered by the news programs in the panel below.
-      See more details in the <a href="methodology.html">Methodology</a> section.
+      This section explores the degree of agreement and diversity in Spanish television news programs.
+      We measure how closely different outlets align in their coverage and how varied the topics presented to audiences are.
+      The concept of <strong>entropy</strong> is used to quantify diversity: higher entropy indicates more heterogeneous coverage across subjects,
+      while lower entropy reflects more uniform, repetitive news focus.
     </p>
-    <iframe src="https://spanish-media-monitor-7458bc4bd3d9.herokuapp.com"></iframe>
-  </div>
-</div>
 
-<footer>
-  <p>&copy; 2025 TV News Media Monitor</p>
-</footer>
+    <div class="chart-container">
+      <h3>Coverage Composition Over Time</h3>
+      <p>
+        The interactive graph below displays the entropy time series of news coverage composition.
+        Each point represents the diversity level of a specific news program over time.
+        Click any point to explore the underlying topics covered during that period.
+        More details are available in the <a href="methodology.html">Methodology</a> section.
+      </p>
+      <iframe src="https://spanish-media-monitor-7458bc4bd3d9.herokuapp.com"></iframe>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <img src="logo.png" alt="SMM Logo Small">
+      &copy; 2025 <span>SMM</span> — Spanish Media Monitor
+    </p>
+  </footer>
 
 </body>
 </html>

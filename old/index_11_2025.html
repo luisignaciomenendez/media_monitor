@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Regression Analysis</title>
+  <title>Interactive Media Insights</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -35,23 +35,26 @@
       max-width: 1200px;
       margin: auto;
     }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
     .chart-container {
       background-color: white;
       padding: 15px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-      overflow-x: auto;  /* Allow horizontal scroll if necessary */
+      width: 100%;
     }
     iframe {
       width: 100%;
-      min-width: 320px;   /* Prevent the iframe from becoming too narrow */
       height: 600px;
       border: none;
     }
     @media (max-width: 768px) {
       iframe {
-        height: 400px;  /* Adjust height for smaller screens */
+        height: 400px; /* Adjust height for smaller screens */
       }
     }
     footer {
@@ -67,27 +70,29 @@
 
 <header>
   <h1>TV News Media Monitor</h1>
-  <p>Explore media coverage and bias trends in Spanish TV News Programs</p>
+  <p>Explore media coverage and bias trends with interactive charts in Spanish TV News Programs.</p>
 </header>
 
-
 <nav>
-    <a href="index.html">Home</a>
-    <a href="coverage.html">Media Agreement</a>
-    <a href="regression.html">Political Tone</a>
-    <a href="methodology.html">Methodology</a>
-  </nav>
+  <a href="index.html">Home</a>
+  <a href="coverage.html">Media Agreement</a>
+  <a href="regression.html">Political Tone</a>
+  <a href="methodology.html">Methodology</a>
+</nav>
 
 <div class="content">
-  <h2>Political Tone</h2>
-  <div class="chart-container">
-    <h3>Monthly Regression Analysis</h3>
-    <p>
-      This interactive graph displays the monthly regression coefficients (with error bands) for each channel,
-      based on a regression that uses channel dummies (no constant) for a given political tone measure.
-      Select the desired party from the dropdown menu to view its average tone and see which channels are deviating the most.
-    </p>
-    <iframe src="./figures/monthly_channel_regression_dropdown.html"></iframe>
+  <h2>Political Mentions</h2>
+  <p>Select a category below to see the relative mentions to parties (top graph) and politicians on each channel.</p>
+  <p>Mentions to political parties include a comprehensive list of party labels and names of politicians. The graphs report the relative number of mentions over all (pre-processed) words. </p>
+  <div class="grid">
+    <div class="chart-container">
+      <h3>Coverage Breakdown by Party</h3>
+      <iframe src="./figures/interactive_mentions_plot.html"></iframe>
+    </div>
+    <div class="chart-container">
+      <h3>Coverage Breakdown by Political Actor</h3>
+      <iframe src="./figures/interactive_mentions_plot_politicians.html"></iframe>
+    </div>
   </div>
 </div>
 
