@@ -33,76 +33,77 @@
   <!-- MAIN CONTENT -->
   <div class="content">
     <h2>Methodology</h2>
+
     <p>
-      This page describes the analytical and computational methods behind SMM's continuous monitoring of Spanish television news.
-      The pipeline integrates data engineering, machine learning, and natural language processing to study political tone, coverage diversity, and cross-outlet agreement.
+      Below we describe, in plain language, how the Spanish Media Monitor (SMM) processes television news and what you can explore on this site.
+      For a complete technical write-up you can download the full methodology (PDF):
+      <a href="https://www.dropbox.com/scl/fi/gt7h2eswv9pvk8kcs3vmw/readme_smm.pdf?rlkey=hrx42tlc9mer1r9u42e70ehdm&dl=0" target="_blank" rel="noopener">readme_smm.pdf</a>
     </p>
 
     <!-- PIPELINE SECTION -->
     <div class="chart-container">
       <h3>Analytical Pipeline</h3>
       <p>
-        The diagram below outlines the key stages of our workflow — from raw data collection to content classification and visualization.
+        We collect broadcast news, convert audio to text, and apply automated analyses to identify who is mentioned, what topics appear, and the tone of those mentions.
+        The diagram below gives a visual overview of the main stages from raw videos to the interactive charts on this site.
       </p>
       <div class="image-container">
         <img src="figures/pipeline3.png" alt="Media Monitoring Pipeline">
       </div>
     </div>
 
-    <!-- DATA PROCESSING SECTION -->
+    <!-- DATA PROCESSING SECTION (simple) -->
     <div class="chart-container">
-      <h3>Data Collection and Processing Steps</h3>
+      <h3>How the data are processed </h3>
       <p>
-        <strong>1. Data Collection:</strong> News videos are gathered from major Spanish channels, including TVE, Antena 3, laSexta, and Telecinco.<br>
-        <strong>2. Audio Extraction:</strong> Each video is converted to WAV format using <code>FFmpeg</code>.<br>
-        <strong>3. Speech-to-Text:</strong> We use Google’s Speech-to-Text API for automatic transcription.<br>
-        <strong>4. Topic Modeling:</strong> Topics are extracted using <strong>BERTopic</strong>, a transformer-based clustering method.<br>
-        <strong>5. Tone Classification:</strong> Large Language Models (LLMs, currently GPT-4) assign tone scores to each political reference (−1 negative, 0 neutral, 1 positive).
+        - We extract audio from TV news recordings and transcribe it automatically.<br>
+        - Transcripts are scanned for mentions of political parties and named politicians.
+        - We group related words and sentences into topics to see which stories each channel covers.
+        - We use language models to estimate the tone (positive, neutral, negative) of each mention, then summarize those scores across time and channels.
       </p>
     </div>
 
-    <!-- ENTROPY SECTION -->
+    <!-- ENTROPY SECTION (plain language) -->
     <div class="chart-container">
-      <h3>Entropy Calculation</h3>
+      <h3>Measuring agreement across channels</h3>
       <p>
-        Entropy has been widely used as a measure of <em>news disagreement</em> across outlets
-        (see, for example, <a href="https://ideas.repec.org/p/cam/camdae/2131.html" target="_blank">Gentzkow et al. 2023</a>).
-        First, we filter dates with coverage from at least 50% of the monitored outlets to avoid bias due to missing data.
-        Then, for each day \(d\), we compute the share of time each channel \(c\) devotes to story \(s\):
-      </p>
-
-      <p style="text-align:center;">
-        \[
-        \text{entropy}_{d}
-        = -\sum_{s=1}^{S}\sum_{c}
-        \frac{\text{time}_{scd}}{\text{total_time}_{cd}}
-        \times \log\!\left(\frac{\text{time}_{scd}}{\text{total_time}_{cd}}\right)
-        \]
-      </p>
-
-      <p>
-        Lower entropy corresponds to higher similarity in coverage—i.e., stronger alignment across outlets in the topics emphasized that day.
+        To check how similar or different channels are on any given day, we compute a measure of agreement across outlets based on the share of airtime devoted to each story.
+        Higher values indicate that channels emphasize different stories (more disagreement); lower values indicate that channels focus on the same stories (more agreement).
+        To avoid misleading values on sparse days, we only compute this measure when at least half of the monitored outlets carry coverage that day.
       </p>
     </div>
 
-    <!-- POLITICAL TONE SECTION -->
+    <!-- POLITICAL TONE SECTION (plain language) -->
     <div class="chart-container">
-      <h3>Political Tone Measurement</h3>
+      <h3>Political Tone (what the charts show)</h3>
       <p>
-        Political tone is computed as the average of LLM-classified tone values across all mentions of each party within a given period.
-        For every channel-party pair, we calculate:
+        Each time a party or politician is mentioned we assign a simple tone label: negative, neutral or positive. We then average those labels over the chosen time window
+        so the charts show overall trends in how channels treat different parties or figures. Monthly averages include uncertainty bands so you can see how robust differences are.
       </p>
+    </div>
 
-      <p style="text-align:center;">
-        \[
-        \text{Tone}_{c,p,t}
-        = \frac{1}{N_{c,p,t}} \sum_{i=1}^{N_{c,p,t}} \text{tone}_{i}
-        \]
-      </p>
-
+    <!-- SITE TABS EXPLANATION -->
+    <div class="chart-container">
+      <h3>How to use the site — what each tab shows</h3>
       <p>
-        where \(N_{c,p,t}\) denotes the number of mentions of party \(p\) in channel \(c\) during time \(t\).
-        Monthly tone averages are then visualized with confidence intervals to show systematic differences in sentiment across networks.
+        - Home: High-level summary and latest highlights. Useful to get a quick sense of recent coverage patterns.
+      </p>
+      <p>
+        - Media Agreement ("coverage.html"): Visualizes which stories and topics receive airtime across channels and shows the agreement/disagreement metric.
+        Use this to identify days when networks focus on the same story or diverge.
+      </p>
+      <p>
+        - Political Mentions: Two interactive charts show relative mentions by party (top) and by individual political actors (bottom).
+        Use the dropdowns and time selectors inside the charts to filter by channel, date range, or specific parties/people.
+      </p>
+      <p>
+        - Political Tone: Shows how positive/neutral/negative mentions are for each party across channels and over time. You can compare parties or channels and inspect monthly averages with confidence bands.
+      </p>
+      <p>
+        - Methodology: This page — concise explanation with a link to the complete technical PDF.
+      </p>
+      <p>
+        - About Us: Information about the project team and contact details.
       </p>
     </div>
 
