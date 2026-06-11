@@ -273,10 +273,10 @@ footer span {
 
 /* ====== BUTTONS ====== */
 .buttons {
-  text-align: center;
+  text-align: left;
   margin-top: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 15px;
 }
@@ -553,6 +553,14 @@ footer span {
   line-height: 1.05;
 }
 
+.hero-copy p,
+.hero-lead,
+.insight-card p {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .hero-lead {
   max-width: 720px;
   margin: 0;
@@ -734,6 +742,11 @@ footer span {
 
   .hero-panel {
     padding: 26px;
+  }
+
+  .buttons {
+    justify-content: center;
+    text-align: center;
   }
 }
 
