@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Methodology – SMM</title>
+  <title>Metodología – SMM</title>
   <link rel="stylesheet" href="style.css">
 <link rel="icon" sizes="32x32" href="logo.png" type="image/png">
 <link rel="apple-touch-icon" href="logo.png">
@@ -16,36 +16,37 @@
 
   <!-- HEADER -->
   <header>
+    <button id="lang-toggle">English</button>
     <img src="main_logo.png" alt="LOGO_Banner" class="banner">
   <!--  <p>Methodology Behind Media Analysis and Computational Monitoring</p>-->
   </header>
 
   <!-- NAVIGATION -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="coverage.html">Media Agreement</a>
-    <a href="mentions.html">Political Mentions</a>
-    <a href="politicaltone.html">Political Tone</a>
-    <a href="methodology.html" class="active">Methodology</a>
-    <a href="about.html">About Us</a>
+    <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+    <a href="coverage.html" data-es="Acuerdo y Desacuerdo" data-en="Media Agreement">Acuerdo y Desacuerdo</a>
+    <a href="mentions.html" data-es="Menciones Políticas" data-en="Political Mentions">Menciones Políticas</a>
+    <a href="politicaltone.html" data-es="Tono Político" data-en="Political Tone">Tono Político</a>
+    <a href="methodology.html" class="active" data-es="Metodología" data-en="Methodology">Metodología</a>
+    <a href="about.html" data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</a>
   </nav>
 
   <!-- MAIN CONTENT -->
   <div class="content">
-    <h2>Methodology</h2>
+    <h2 data-es="Metodología" data-en="Methodology">Metodología</h2>
 
-    <p>
-      Below we describe, in plain language, how the Spanish Media Monitor (SMM) processes television news and what you can explore on this site.
-      For a complete technical write-up you can download the full methodology (PDF):
+    <p data-es='A continuación describimos, en lenguaje sencillo, cómo procesa el Spanish Media Monitor (SMM) los informativos de televisión y qué se puede explorar en este sitio. Para una explicación técnica completa puedes descargar la metodología completa (PDF): <a href="https://www.dropbox.com/scl/fi/gt7h2eswv9pvk8kcs3vmw/readme_smm.pdf?rlkey=hrx42tlc9mer1r9u42e70ehdm&dl=0" target="_blank" rel="noopener">readme_smm.pdf</a>'
+       data-en='Below we describe, in plain language, how the Spanish Media Monitor (SMM) processes television news and what you can explore on this site. For a complete technical write-up you can download the full methodology (PDF): <a href="https://www.dropbox.com/scl/fi/gt7h2eswv9pvk8kcs3vmw/readme_smm.pdf?rlkey=hrx42tlc9mer1r9u42e70ehdm&dl=0" target="_blank" rel="noopener">readme_smm.pdf</a>'>
+      A continuación describimos, en lenguaje sencillo, cómo procesa el Spanish Media Monitor (SMM) los informativos de televisión y qué se puede explorar en este sitio. Para una explicación técnica completa puedes descargar la metodología completa (PDF):
       <a href="https://www.dropbox.com/scl/fi/gt7h2eswv9pvk8kcs3vmw/readme_smm.pdf?rlkey=hrx42tlc9mer1r9u42e70ehdm&dl=0" target="_blank" rel="noopener">readme_smm.pdf</a>
     </p>
 
     <!-- PIPELINE SECTION -->
     <div class="chart-container">
-      <h3>Analytical Pipeline</h3>
-      <p>
-        We collect broadcast news, convert audio to text, and apply automated analyses to identify who is mentioned, what topics appear, and the tone of those mentions.
-        The diagram below gives a visual overview of the main stages from raw videos to the interactive charts on this site.
+      <h3 data-es="Pipeline analítico" data-en="Analytical Pipeline">Pipeline analítico</h3>
+      <p data-es="Recopilamos informativos de televisión, convertimos el audio en texto y aplicamos análisis automatizados para identificar quién es mencionado, qué temas aparecen y el tono de esas menciones. El siguiente diagrama ofrece una visión general de las etapas principales, desde los vídeos en bruto hasta los gráficos interactivos de este sitio."
+         data-en="We collect broadcast news, convert audio to text, and apply automated analyses to identify who is mentioned, what topics appear, and the tone of those mentions. The diagram below gives a visual overview of the main stages from raw videos to the interactive charts on this site.">
+        Recopilamos informativos de televisión, convertimos el audio en texto y aplicamos análisis automatizados para identificar quién es mencionado, qué temas aparecen y el tono de esas menciones. El siguiente diagrama ofrece una visión general de las etapas principales, desde los vídeos en bruto hasta los gráficos interactivos de este sitio.
       </p>
       <div class="image-container">
         <img src="figures/pipeline3.png" alt="Media Monitoring Pipeline">
@@ -54,56 +55,72 @@
 
     <!-- DATA PROCESSING SECTION (simple) -->
     <div class="chart-container">
-      <h3>How the data are processed </h3>
-      <p>
-        - We extract audio from TV news recordings and transcribe it automatically.<br>
-        - Transcripts are scanned for mentions of political parties and named politicians.
-        - We group related words and sentences into topics to see which stories each channel covers.
-        - We use language models to estimate the tone (positive, neutral, negative) of each mention, then summarize those scores across time and channels.
+      <h3 data-es="Cómo se procesan los datos" data-en="How the data are processed">Cómo se procesan los datos</h3>
+      <p data-es="- Extraemos el audio de las grabaciones de los informativos y lo transcribimos automáticamente.<br>- Las transcripciones se analizan para detectar menciones a partidos políticos y a políticos concretos.<br>- Agrupamos palabras y frases relacionadas en temas para ver qué noticias cubre cada cadena.<br>- Usamos modelos de lenguaje para estimar el tono (positivo, neutro, negativo) de cada mención, y resumimos esas puntuaciones a lo largo del tiempo y por cadena."
+         data-en="- We extract audio from TV news recordings and transcribe it automatically.<br>- Transcripts are scanned for mentions of political parties and named politicians.<br>- We group related words and sentences into topics to see which stories each channel covers.<br>- We use language models to estimate the tone (positive, neutral, negative) of each mention, then summarize those scores across time and channels.">
+        - Extraemos el audio de las grabaciones de los informativos y lo transcribimos automáticamente.<br>
+        - Las transcripciones se analizan para detectar menciones a partidos políticos y a políticos concretos.<br>
+        - Agrupamos palabras y frases relacionadas en temas para ver qué noticias cubre cada cadena.<br>
+        - Usamos modelos de lenguaje para estimar el tono (positivo, neutro, negativo) de cada mención, y resumimos esas puntuaciones a lo largo del tiempo y por cadena.
       </p>
     </div>
 
-    <!-- ENTROPY SECTION (plain language) -->
+    <!-- AGREEMENT/DISAGREEMENT SECTION (plain language) -->
     <div class="chart-container">
-      <h3>Measuring agreement across channels</h3>
-      <p>
-        To check how similar or different channels are on any given day, we compute a measure of agreement across outlets based on the share of airtime devoted to each story.
-        Higher values indicate that channels emphasize different stories (more disagreement); lower values indicate that channels focus on the same stories (more agreement).
-        To avoid misleading values on sparse days, we only compute this measure when at least half of the monitored outlets carry coverage that day.
+      <h3 data-es="Cómo medimos el acuerdo y el desacuerdo entre cadenas" data-en="Measuring agreement and disagreement across channels">Cómo medimos el acuerdo y el desacuerdo entre cadenas</h3>
+      <p data-es="La nueva pestaña de 'Acuerdo y Desacuerdo' combina dos medidas distintas. La primera es un índice de acuerdo editorial basado en la entropía de la distribución temática diaria. Lo mostramos invertido para que su lectura sea más intuitiva: valores más altos significan más concentración en un conjunto parecido de temas y, por tanto, más acuerdo entre agendas. Esta serie sirve para localizar rápidamente los días en los que los informativos se parecieron más o menos entre sí."
+         data-en="The updated 'Media Agreement' tab combines two distinct measures. The first is an editorial agreement index based on the entropy of the daily topic distribution. We display it inverted so that it is easier to read: higher values mean more concentration around a similar set of topics and therefore more agreement across agendas. This time series helps locate the days when newscasts looked more or less alike.">
+        La nueva pestaña de "Acuerdo y Desacuerdo" combina dos medidas distintas. La primera es un índice de acuerdo editorial basado en la entropía de la distribución temática diaria. Lo mostramos invertido para que su lectura sea más intuitiva: valores más altos significan más concentración en un conjunto parecido de temas y, por tanto, más acuerdo entre agendas. Esta serie sirve para localizar rápidamente los días en los que los informativos se parecieron más o menos entre sí.
+      </p>
+      <p data-es="La segunda medida es el desacuerdo temático dentro de un día concreto. Para cada tema detectado automáticamente, calculamos qué porcentaje del tiempo político de cada cadena (los segmentos que mencionan a partidos o políticos) se dedica a ese tema. La diferencia entre la cadena que más y la que menos peso le da al mismo tema dentro de su propia agenda política es nuestra medida de desacuerdo: cuanto mayor es ese gap, más distintas son las prioridades editoriales; cuanto menor, más coinciden en lo que consideran noticia."
+         data-en="The second measure is topical disagreement within a specific day. For each automatically detected topic, we calculate what share of each channel's political airtime (segments that mention parties or politicians) is devoted to that topic. The gap between the channel that gives a topic the most and the least weight within its own political agenda is our measure of disagreement: the larger the gap, the more editorial priorities diverge; the smaller it is, the more they agree on what counts as news.">
+        La segunda medida es el desacuerdo temático dentro de un día concreto. Para cada tema detectado automáticamente, calculamos qué porcentaje del tiempo político de cada cadena (los segmentos que mencionan a partidos o políticos) se dedica a ese tema. La diferencia entre la cadena que más y la que menos peso le da al mismo tema dentro de su propia agenda política es nuestra medida de desacuerdo: cuanto mayor es ese gap, más distintas son las prioridades editoriales; cuanto menor, más coinciden en lo que consideran noticia.
+      </p>
+      <p data-es="La vista interactiva permite seleccionar una fecha y ver tres capas a la vez: un mapa de calor que compara el peso de cada tema por cadena, un ranking de los temas donde más divergen y una mezcla editorial por canal para ese día. Las etiquetas visibles de los temas no son nombres escritos manualmente uno a uno: se generan a partir de los grupos de palabras detectados automáticamente y se muestran en una forma más legible para el lector."
+         data-en="The interactive view lets users select a date and inspect three layers at once: a heatmap comparing the weight of each topic by channel, a ranking of the topics where channels diverge most, and an editorial mix by channel for that day. The visible topic labels are not hand-written one by one: they are generated from automatically detected word bundles and displayed in a more readable form for readers.">
+        La vista interactiva permite seleccionar una fecha y ver tres capas a la vez: un mapa de calor que compara el peso de cada tema por cadena, un ranking de los temas donde más divergen y una mezcla editorial por canal para ese día. Las etiquetas visibles de los temas no son nombres escritos manualmente uno a uno: se generan a partir de los grupos de palabras detectados automáticamente y se muestran en una forma más legible para el lector.
+      </p>
+      <p data-es="Usamos como base el tiempo político de cada cadena, en lugar del total de su informativo, porque algunas cadenas hablan de política mucho más que otras (en este periodo, Antena 3 dedica a contenido político un ~30% de sus segmentos, laSexta ~20%, y Telecinco/TVE ~15% cada una). Si midiéramos sobre el total del informativo, esa cadena parecería 'liderar' la cobertura de cualquier tema político simplemente por hablar más de política en general, no porque ese tema en concreto le interese más."
+         data-en="We use each channel's political airtime as the base, rather than its total broadcast, because some channels talk about politics much more than others (over this period, Antena 3 devotes ~30% of its segments to political content, laSexta ~20%, and Telecinco/TVE ~15% each). Measuring against total airtime would make that channel appear to 'lead' coverage of any political topic simply because it talks about politics more overall, not because that specific topic matters more to it.">
+        Usamos como base el tiempo político de cada cadena, en lugar del total de su informativo, porque algunas cadenas hablan de política mucho más que otras (en este periodo, Antena 3 dedica a contenido político un ~30% de sus segmentos, laSexta ~20%, y Telecinco/TVE ~15% cada una). Si midiéramos sobre el total del informativo, esa cadena parecería "liderar" la cobertura de cualquier tema político simplemente por hablar más de política en general, no porque ese tema en concreto le interese más.
       </p>
     </div>
 
     <!-- POLITICAL TONE SECTION (plain language) -->
     <div class="chart-container">
-      <h3>Political Tone (what the charts show)</h3>
-      <p>
-        Each time a party or politician is mentioned we assign a simple tone label: negative, neutral or positive. We then average those labels over the chosen time window
-        so the charts show overall trends in how channels treat different parties or figures. Monthly averages include uncertainty bands so you can see how robust differences are.
+      <h3 data-es="Tono político (qué muestran los gráficos)" data-en="Political Tone (what the charts show)">Tono político (qué muestran los gráficos)</h3>
+      <p data-es="Cada vez que se menciona a un partido o político le asignamos una etiqueta de tono sencilla: negativo, neutro o positivo. Después promediamos esas etiquetas, excluyendo los días sin menciones, para que los gráficos muestren tendencias generales en cómo trata cada cadena a los distintos partidos."
+         data-en="Each time a party or politician is mentioned we assign a simple tone label: negative, neutral or positive. We then average those labels, excluding days without mentions, so the charts show overall trends in how each channel treats different parties.">
+        Cada vez que se menciona a un partido o político le asignamos una etiqueta de tono sencilla: negativo, neutro o positivo. Después promediamos esas etiquetas, excluyendo los días sin menciones, para que los gráficos muestren tendencias generales en cómo trata cada cadena a los distintos partidos.
       </p>
     </div>
 
     <!-- SITE TABS EXPLANATION -->
     <div class="chart-container">
-      <h3>How to use the site — what each tab shows</h3>
-      <p>
-        - Home: High-level summary and latest highlights. Useful to get a quick sense of recent coverage patterns.
+      <h3 data-es="Cómo usar el sitio: qué muestra cada pestaña" data-en="How to use the site — what each tab shows">Cómo usar el sitio: qué muestra cada pestaña</h3>
+      <p data-es="- Inicio: resumen general y aspectos destacados recientes. Útil para hacerse una idea rápida de los patrones de cobertura."
+         data-en="- Home: High-level summary and latest highlights. Useful to get a quick sense of recent coverage patterns.">
+        - Inicio: resumen general y aspectos destacados recientes. Útil para hacerse una idea rápida de los patrones de cobertura.
       </p>
-      <p>
-        - Media Agreement ("coverage.html"): Visualizes which stories and topics receive airtime across channels and shows the agreement/disagreement metric.
-        Use this to identify days when networks focus on the same story or diverge.
+      <p data-es="- Acuerdo y Desacuerdo (&quot;coverage.html&quot;): combina una serie temporal de acuerdo editorial con un análisis diario del desacuerdo por tema. Úsalo para localizar fechas clave y después ver, dentro de cada día, qué historias concentran más a las cadenas y en cuáles divergen más."
+         data-en="- Media Agreement (&quot;coverage.html&quot;): combines a time series of editorial agreement with a day-level analysis of topical disagreement. Use it to locate key dates and then inspect which stories concentrate channel agendas and which ones split them the most.">
+        - Acuerdo y Desacuerdo ("coverage.html"): combina una serie temporal de acuerdo editorial con un análisis diario del desacuerdo por tema. Úsalo para localizar fechas clave y después ver, dentro de cada día, qué historias concentran más a las cadenas y en cuáles divergen más.
       </p>
-      <p>
-        - Political Mentions: Two interactive charts show relative mentions by party (top) and by individual political actors (bottom).
-        Use the dropdowns and time selectors inside the charts to filter by channel, date range, or specific parties/people.
+      <p data-es="- Menciones Políticas: un resumen reciente clasifica a las cadenas por la atención que dan a cada partido, seguido de gráficos interactivos con la evolución temporal por partido y por figura política."
+         data-en="- Political Mentions: a recent snapshot ranks channels by the attention they give each party, followed by interactive charts showing how mentions evolve over time by party and by individual political actor.">
+        - Menciones Políticas: un resumen reciente clasifica a las cadenas por la atención que dan a cada partido, seguido de gráficos interactivos con la evolución temporal por partido y por figura política.
       </p>
-      <p>
-        - Political Tone: Shows how positive/neutral/negative mentions are for each party across channels and over time. You can compare parties or channels and inspect monthly averages with confidence bands.
+      <p data-es="- Tono Político: un ranking muestra, para cada partido, qué cadenas son más favorables o más críticas en su cobertura, calculado a partir del tono medio de las menciones."
+         data-en="- Political Tone: a leaderboard shows, for each party, which channels are more favorable or more critical in their coverage, based on the average tone of mentions.">
+        - Tono Político: un ranking muestra, para cada partido, qué cadenas son más favorables o más críticas en su cobertura, calculado a partir del tono medio de las menciones.
       </p>
-      <p>
-        - Methodology: This page — concise explanation with a link to the complete technical PDF.
+      <p data-es="- Metodología: esta página, con una explicación resumida y un enlace al PDF técnico completo."
+         data-en="- Methodology: This page — concise explanation with a link to the complete technical PDF.">
+        - Metodología: esta página, con una explicación resumida y un enlace al PDF técnico completo.
       </p>
-      <p>
-        - About Us: Information about the project team and contact details.
+      <p data-es="- Sobre Nosotros: información sobre el equipo del proyecto y datos de contacto."
+         data-en="- About Us: Information about the project team and contact details.">
+        - Sobre Nosotros: información sobre el equipo del proyecto y datos de contacto.
       </p>
     </div>
 
@@ -113,12 +130,13 @@
   <footer>
     <p>
       <img src="logo.png" alt="SMM Logo Small">
-      &copy; 2025 <span>SMM</span> — Spanish Media Monitor
-       Data licensed under 
-    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license">
-      CC BY 4.0
+      &copy; 2025 <span>SMM</span> — Spanish Media Monitor.
+      <span data-es="Datos bajo licencia" data-en="Data licensed under">Datos bajo licencia</span>
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license">CC BY 4.0</a>
     </p>
   </footer>
+
+<script src="lang.js"></script>
 
 </body>
 </html>

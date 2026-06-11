@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - SMM</title>
+  <title>Sobre Nosotros - SMM</title>
 <link rel="icon" sizes="32x32" href="logo.png" type="image/png">
 <link rel="apple-touch-icon" href="logo.png">
   <link rel="stylesheet" href="style.css">
@@ -12,45 +12,42 @@
 
   <!-- HEADER -->
   <header>
+    <button id="lang-toggle">English</button>
     <img src="main_logo.png" alt="LOGO_Banner" class="banner">
     </header>
 
   <!-- NAVIGATION -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="coverage.html">Media Agreement</a>
-    <a href="mentions.html">Political Mentions</a>
-    <a href="politicaltone.html">Political Tone</a>
-    <a href="methodology.html">Methodology</a>
-    <a href="about.html" class="active">About Us</a>
+    <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+    <a href="coverage.html" data-es="Acuerdo y Desacuerdo" data-en="Media Agreement">Acuerdo y Desacuerdo</a>
+    <a href="mentions.html" data-es="Menciones Políticas" data-en="Political Mentions">Menciones Políticas</a>
+    <a href="politicaltone.html" data-es="Tono Político" data-en="Political Tone">Tono Político</a>
+    <a href="methodology.html" data-es="Metodología" data-en="Methodology">Metodología</a>
+    <a href="about.html" class="active" data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</a>
   </nav>
 
   <!-- ABOUT CONTENT -->
   <div class="about-page">
-    <h1>About SMM</h1>
-    <p class="intro">
-      The <strong>Spanish Media Monitor (SMM)</strong> observatory is a research initiative that studies how
-      political information is produced and represented in Spanish television news. Our goal is to provide reliable, data-driven insight into
-      the ways media institutions shape public perception and democratic debate.
+    <h1 data-es="Sobre SMM" data-en="About SMM">Sobre SMM</h1>
+    <p class="intro"
+       data-es='El observatorio <strong>Spanish Media Monitor (SMM)</strong> es una iniciativa de investigación que estudia cómo se produce y representa la información política en los informativos de televisión españoles. Nuestro objetivo es ofrecer una visión rigurosa y basada en datos sobre cómo los medios moldean la percepción pública y el debate democrático.'
+       data-en='The <strong>Spanish Media Monitor (SMM)</strong> observatory is a research initiative that studies how political information is produced and represented in Spanish television news. Our goal is to provide reliable, data-driven insight into the ways media institutions shape public perception and democratic debate.'>
+      El observatorio <strong>Spanish Media Monitor (SMM)</strong> es una iniciativa de investigación que estudia cómo se produce y representa la información política en los informativos de televisión españoles. Nuestro objetivo es ofrecer una visión rigurosa y basada en datos sobre cómo los medios moldean la percepción pública y el debate democrático.
     </p>
 
-    <h2>Our Mission</h2>
-    <p>
-      SMM aims to advance the understanding of political communication in Spain by combining computational methods, media analysis,
-      and economic theory. We use large-scale data collection and artificial intelligence tools to systematically measure coverage,
-      sentiment, and bias across leading national TV channels.
+    <h2 data-es="Nuestra misión" data-en="Our Mission">Nuestra misión</h2>
+    <p data-es="SMM busca avanzar en la comprensión de la comunicación política en España combinando métodos computacionales, análisis de medios y teoría económica. Utilizamos recopilación de datos a gran escala y herramientas de inteligencia artificial para medir sistemáticamente la cobertura, el tono y el sesgo de las principales cadenas de televisión nacionales."
+       data-en="SMM aims to advance the understanding of political communication in Spain by combining computational methods, media analysis, and economic theory. We use large-scale data collection and artificial intelligence tools to systematically measure coverage, sentiment, and bias across leading national TV channels.">
+      SMM busca avanzar en la comprensión de la comunicación política en España combinando métodos computacionales, análisis de medios y teoría económica. Utilizamos recopilación de datos a gran escala y herramientas de inteligencia artificial para medir sistemáticamente la cobertura, el tono y el sesgo de las principales cadenas de televisión nacionales.
     </p>
 
-    <h2>Our Approach</h2>
-    <p>
-      The project continuously monitors news programs from major Spanish broadcasters.
-      Through automated transcription, topic modeling, and sentiment detection,
-      we build time series of political exposure and evaluate patterns in media polarization and attention.
-      Each metric is presented transparently through interactive dashboards that allow users to
-      explore trends in coverage and framing.
+    <h2 data-es="Nuestro enfoque" data-en="Our Approach">Nuestro enfoque</h2>
+    <p data-es="El proyecto monitoriza de forma continua los informativos de las principales cadenas españolas. Mediante transcripción automática, modelado de temas y detección de sentimiento, construimos series temporales de exposición política y evaluamos patrones de polarización y atención mediática. Cada métrica se presenta de forma transparente a través de paneles interactivos que permiten explorar tendencias en cobertura y enfoque."
+       data-en="The project continuously monitors news programs from major Spanish broadcasters. Through automated transcription, topic modeling, and sentiment detection, we build time series of political exposure and evaluate patterns in media polarization and attention. Each metric is presented transparently through interactive dashboards that allow users to explore trends in coverage and framing.">
+      El proyecto monitoriza de forma continua los informativos de las principales cadenas españolas. Mediante transcripción automática, modelado de temas y detección de sentimiento, construimos series temporales de exposición política y evaluamos patrones de polarización y atención mediática. Cada métrica se presenta de forma transparente a través de paneles interactivos que permiten explorar tendencias en cobertura y enfoque.
     </p>
 
- <h2>Our Team</h2>
+ <h2 data-es="Nuestro equipo" data-en="Our Team">Nuestro equipo</h2>
 <div class="team-grid">
 
   <!-- Luis -->
@@ -59,11 +56,11 @@
       <img src="luis.jpeg" alt="Luis I. Menéndez">
       <div class="bio">
         <h3>Luis Menéndez</h3>
-        <p>
-          Ph.D. Candidate in Economics at the Universitat Autònoma de Barcelona.
-          His research explores political economics, media economics and machine learning.
+        <p data-es="Doctorando en Economía en la Universitat Autònoma de Barcelona. Su investigación abarca economía política, economía de los medios y aprendizaje automático."
+           data-en="Ph.D. Candidate in Economics at the Universitat Autònoma de Barcelona. His research explores political economics, media economics and machine learning.">
+          Doctorando en Economía en la Universitat Autònoma de Barcelona. Su investigación abarca economía política, economía de los medios y aprendizaje automático.
         </p>
-       
+
       </div>
     </div>
   </a>
@@ -73,11 +70,11 @@
       <img src="manuel.jpeg" alt="Manuel Lleonart-Anguix">
       <div class="bio">
         <h3>Manuel Lleonart-Anguix</h3>
-        <p>
-          Ph.D. Candidate in Economics at the Universitat Autònoma de Barcelona and the Barcelona School of Economics.
-          His research focuses on organizational design, incentives, and political economics.
+        <p data-es="Doctorando en Economía en la Universitat Autònoma de Barcelona y la Barcelona School of Economics. Su investigación se centra en diseño organizativo, incentivos y economía política."
+           data-en="Ph.D. Candidate in Economics at the Universitat Autònoma de Barcelona and the Barcelona School of Economics. His research focuses on organizational design, incentives, and political economics.">
+          Doctorando en Economía en la Universitat Autònoma de Barcelona y la Barcelona School of Economics. Su investigación se centra en diseño organizativo, incentivos y economía política.
         </p>
-       
+
       </div>
     </div>
   </a>
@@ -87,43 +84,42 @@
 
 
 
-      
 
     <div class="contact">
-      <h2>Contact Us</h2>
-      <p>
-        For collaborations, inquiries, or data access requests, please reach out at
-        <a href="mailto:luisigmenendez@gmail.com">luisigmenendez@gmail.com</a> or <a href="mailto:manuel.lleonart@bse.eu">manuel.lleonart@bse.eu</a>.
+      <h2 data-es="Contacto" data-en="Contact Us">Contacto</h2>
+      <p data-es='Para colaboraciones, consultas o solicitudes de acceso a datos, escríbenos a <a href="mailto:luisigmenendez@gmail.com">luisigmenendez@gmail.com</a> o <a href="mailto:manuel.lleonart@bse.eu">manuel.lleonart@bse.eu</a>.'
+         data-en='For collaborations, inquiries, or data access requests, please reach out at <a href="mailto:luisigmenendez@gmail.com">luisigmenendez@gmail.com</a> or <a href="mailto:manuel.lleonart@bse.eu">manuel.lleonart@bse.eu</a>.'>
+        Para colaboraciones, consultas o solicitudes de acceso a datos, escríbenos a
+        <a href="mailto:luisigmenendez@gmail.com">luisigmenendez@gmail.com</a> o <a href="mailto:manuel.lleonart@bse.eu">manuel.lleonart@bse.eu</a>.
       </p>
-      
-</p>
 
     </div>
   </div>
 
 
   <div class="contact">
-      <h2>How to cite</h2>
-      <p>
-        If you use data from mediamonitor.es, please cite:<br><br>
-        Menéndez, L., & Lleonart-Anguix, M. (2025).
+      <h2 data-es="Cómo citar" data-en="How to cite">Cómo citar</h2>
+      <p data-es="Si utilizas datos de mediamonitor.es, por favor cita:<br><br>Menéndez, L., &amp; Lleonart-Anguix, M. (2025). <em>Spanish Media Monitor (SMM) political TV news coverage data</em> [Data set]. https://www.mediamonitor.es"
+         data-en="If you use data from mediamonitor.es, please cite:<br><br>Menéndez, L., &amp; Lleonart-Anguix, M. (2025). <em>Spanish Media Monitor (SMM) political TV news coverage data</em> [Data set]. https://www.mediamonitor.es">
+        Si utilizas datos de mediamonitor.es, por favor cita:<br><br>
+        Menéndez, L., &amp; Lleonart-Anguix, M. (2025).
         <em>Spanish Media Monitor (SMM) political TV news coverage data</em> [Data set].
         https://www.mediamonitor.es
       </p>
 
     </div>
-  </div>
 
   <!-- FOOTER -->
   <footer>
     <p>
       <img src="logo.png" alt="SMM Logo Small">
-      &copy; 2025 <span>SMM</span> — Spanish Media Monitor
-       Data licensed under 
-    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license">
-      CC BY 4.0
+      &copy; 2025 <span>SMM</span> — Spanish Media Monitor.
+      <span data-es="Datos bajo licencia" data-en="Data licensed under">Datos bajo licencia</span>
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license">CC BY 4.0</a>
     </p>
   </footer>
 
+<script src="lang.js"></script>
+
 </body>
-</htmllui
+</html>

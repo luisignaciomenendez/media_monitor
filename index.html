@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,40 +13,87 @@
 
   <!-- HEADER -->
   <header>
+    <button id="lang-toggle">English</button>
     <img src="main_logo.png" alt="KINTI Banner" class="banner">
     <!-- <p>Monitoring and understanding Spanish television media through Artificial Intelligence.</p>-->
   </header>
 
   <!-- NAVIGATION -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="coverage.html">Media Agreement</a>
-    <a href="mentions.html">Political Mentions</a>
-    <a href="politicaltone.html">Political Tone</a>
-    <a href="methodology.html">Methodology</a>
-    <a href="about.html">About Us</a>
+    <a href="index.html" class="active" data-es="Inicio" data-en="Home">Inicio</a>
+    <a href="coverage.html" data-es="Acuerdo y Desacuerdo" data-en="Media Agreement">Acuerdo y Desacuerdo</a>
+    <a href="mentions.html" data-es="Menciones Políticas" data-en="Political Mentions">Menciones Políticas</a>
+    <a href="politicaltone.html" data-es="Tono Político" data-en="Political Tone">Tono Político</a>
+    <a href="methodology.html" data-es="Metodología" data-en="Methodology">Metodología</a>
+    <a href="about.html" data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</a>
 
   </nav>
 
   <!-- MAIN CONTENT -->
   <div class="content">
-    <h2>Understanding Television News in Spain</h2>
-    <p>
-      The Spanish Media Monitor (SMM) observatory studies how
-      political information is produced and represented in Spanish TV news. Our mission is to provide
-      transparent, data-driven insight into the patterns of media coverage, framing, and tone.
-    </p>
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <p class="eyebrow"
+           data-es="Observatorio de medios españoles"
+           data-en="Spanish media observatory">
+          Observatorio de medios españoles
+        </p>
+        <h1 data-es="Descubre cómo cada cadena cuenta las noticias."
+            data-en="See how each channel tells the news.">
+          Descubre cómo cada cadena cuenta las noticias.
+        </h1>
+        <p class="hero-lead"
+           data-es="El Spanish Media Monitor (SMM) estudia cómo se produce y representa la información política en los informativos de televisión españoles. Usando modelos de lenguaje y análisis automatizado, medimos de forma continua qué temas cubre cada cadena, a quién mencionan y con qué tono."
+           data-en="The Spanish Media Monitor (SMM) studies how political information is produced and represented in Spanish TV news. Using language models and automated analysis, we continuously measure what topics each channel covers, who they mention, and with what tone.">
+          El Spanish Media Monitor (SMM) estudia cómo se produce y representa la información política en los informativos de televisión españoles. Usando modelos de lenguaje y análisis automatizado, medimos de forma continua qué temas cubre cada cadena, a quién mencionan y con qué tono.
+        </p>
+        <div class="buttons">
+          <a href="coverage.html" class="button primary" data-es="Ver acuerdo y desacuerdo" data-en="See media agreement">Ver acuerdo y desacuerdo</a>
+          <a href="methodology.html" class="button secondary" data-es="Conoce nuestra metodología" data-en="Learn about our methodology">Conoce nuestra metodología</a>
+        </div>
+      </div>
+      <div class="hero-aside">
+        <div class="stat-card">
+          <span class="stat-value" data-es="5 cadenas" data-en="5 channels">5 cadenas</span>
+          <span class="stat-label" data-es="Antena 3, laSexta, TVE, Telecinco y Cuatro, monitorizadas a diario." data-en="Antena 3, laSexta, TVE, Telecinco and Cuatro, monitored daily.">Antena 3, laSexta, TVE, Telecinco y Cuatro, monitorizadas a diario.</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" data-es="+450 temas" data-en="450+ topics">+450 temas</span>
+          <span class="stat-label" data-es="Detectados automáticamente a partir de los informativos." data-en="Automatically detected from news broadcasts.">Detectados automáticamente a partir de los informativos.</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" data-es="Desde dic. 2022" data-en="Since Dec 2022">Desde dic. 2022</span>
+          <span class="stat-label" data-es="Datos de alta frecuencia, actualizados de forma continua." data-en="High-frequency data, continuously updated.">Datos de alta frecuencia, actualizados de forma continua.</span>
+        </div>
+      </div>
+    </section>
 
-    <p>
-      Using state-of-the-art language models and automated content analysis, SMM continuously monitors
-      major national channels to measure attention, sentiment, and bias across political actors.
-      Our interactive tools allow researchers, journalists, and citizens to explore these trends in real time.
-    </p>
-
-    <div class="buttons">
-      <a href="mentions.html" class="button primary">Explore Political Mentions →</a>
-      <a href="methodology.html" class="button secondary">Learn About Our Methodology</a>
-    </div>
+    <section class="insight-grid">
+      <article class="insight-card">
+        <h3 data-es="Acuerdo y desacuerdo" data-en="Media agreement">Acuerdo y desacuerdo</h3>
+        <p data-es="Compara qué porcentaje de tiempo dedica cada cadena a un mismo tema y descubre dónde más discrepan."
+           data-en="Compare how much airtime each channel devotes to the same topic and find where they diverge most.">
+          Compara qué porcentaje de tiempo dedica cada cadena a un mismo tema y descubre dónde más discrepan.
+        </p>
+        <a href="coverage.html" class="text-link" data-es="Explorar →" data-en="Explore →">Explorar →</a>
+      </article>
+      <article class="insight-card">
+        <h3 data-es="Menciones políticas" data-en="Political mentions">Menciones políticas</h3>
+        <p data-es="Descubre qué partidos y políticos reciben más cobertura en cada cadena, y cómo cambia con el tiempo."
+           data-en="See which parties and politicians get the most coverage on each channel, and how it changes over time.">
+          Descubre qué partidos y políticos reciben más cobertura en cada cadena, y cómo cambia con el tiempo.
+        </p>
+        <a href="mentions.html" class="text-link" data-es="Explorar →" data-en="Explore →">Explorar →</a>
+      </article>
+      <article class="insight-card">
+        <h3 data-es="Tono político" data-en="Political tone">Tono político</h3>
+        <p data-es="Mira qué cadenas tratan a cada partido de forma más favorable o más crítica, según el tono de sus menciones."
+           data-en="See which channels treat each party more favorably or more critically, based on the tone of their mentions.">
+          Mira qué cadenas tratan a cada partido de forma más favorable o más crítica, según el tono de sus menciones.
+        </p>
+        <a href="politicaltone.html" class="text-link" data-es="Explorar →" data-en="Explore →">Explorar →</a>
+      </article>
+    </section>
   </div>
 
 
@@ -55,11 +102,14 @@
     <p>
       <img src="logo.png" alt="KINTI Logo Small">
       &copy; 2025 <span>SMM</span> — Spanish Media Monitor.
-      Data licensed under 
+      <span data-es="Datos bajo licencia" data-en="Data licensed under">Datos bajo licencia</span>
     <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license">
       CC BY 4.0
+    </a>
     </p>
   </footer>
+
+<script src="lang.js"></script>
 
 </body>
 </html>

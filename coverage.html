@@ -1,59 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media Agreement – SMM</title>
+  <title>Acuerdo y Desacuerdo entre Medios – SMM</title>
   <link rel="stylesheet" href="style.css">
-<link rel="icon" sizes="32x32" href="logo.png" type="image/png">
-<link rel="apple-touch-icon" href="logo.png">
+  <link rel="icon" sizes="32x32" href="logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <style>
+    .coverage-frame {
+      width: 100%;
+      min-height: 2080px;
+      border: none;
+      border-radius: 10px;
+      background: white;
+    }
+
+    .coverage-note {
+      max-width: 850px;
+      margin: 1rem auto 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: justify;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
+    <button id="lang-toggle">English</button>
     <img src="main_logo.png" alt="LOGO_Banner" class="banner">
-      </header>
+  </header>
 
-  <!-- NAVIGATION -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="coverage.html" class="active">Media Agreement</a>
-    <a href="mentions.html">Political Mentions</a>
-    <a href="politicaltone.html">Political Tone</a>
-    <a href="methodology.html">Methodology</a>
-    <a href="about.html">About Us</a>
+    <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+    <a href="coverage.html" class="active" data-es="Acuerdo y Desacuerdo" data-en="Media Agreement">Acuerdo y Desacuerdo</a>
+    <a href="mentions.html" data-es="Menciones Políticas" data-en="Political Mentions">Menciones Políticas</a>
+    <a href="politicaltone.html" data-es="Tono Político" data-en="Political Tone">Tono Político</a>
+    <a href="methodology.html" data-es="Metodología" data-en="Methodology">Metodología</a>
+    <a href="about.html" data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</a>
   </nav>
 
-  <!-- MAIN CONTENT -->
   <div class="content">
-    <h2>Media Agreement and Coverage Diversity</h2>
-    <p>
-      This section explores the degree of agreement and diversity in Spanish television news programs.
-      We measure how closely different outlets align in their coverage and how varied the topics presented to audiences are.
-      The concept of <strong>entropy</strong> is used to quantify diversity: higher entropy indicates more heterogeneous coverage across subjects,
-      while lower entropy reflects more uniform, repetitive news focus.
+    <h2 data-es="Acuerdo y Desacuerdo entre Medios" data-en="Media Agreement &amp; Disagreement">Acuerdo y Desacuerdo entre Medios</h2>
+
+    <p data-es="Esta nueva vista separa dos preguntas distintas. Arriba aparece un índice de acuerdo editorial basado en la entropía invertida: cuando sube, las agendas de los informativos están más concentradas en un conjunto parecido de temas. Abajo, el desacuerdo se mide de forma más concreta y legible: para cada tema del día, calculamos la diferencia entre la cadena que más tiempo le dedica y la que menos. Cuanto mayor es ese gap, más divergen sus prioridades."
+       data-en="This updated view separates two different questions. The top panel shows an editorial agreement index based on inverted entropy: when it rises, newscast agendas are more concentrated around a similar set of topics. Below, disagreement is measured more concretely and more readably: for each topic on a given day, we calculate the gap between the channel that gives it the most airtime and the one that gives it the least. The larger the gap, the more their priorities diverge.">
+      Esta nueva vista separa dos preguntas distintas. Arriba aparece un índice de acuerdo editorial basado en la entropía invertida: cuando sube, las agendas de los informativos están más concentradas en un conjunto parecido de temas. Abajo, el desacuerdo se mide de forma más concreta y legible: para cada tema del día, calculamos la diferencia entre la cadena que más tiempo le dedica y la que menos. Cuanto mayor es ese gap, más divergen sus prioridades.
+    </p>
+
+    <p data-es="Haz clic sobre cualquier fecha de la serie temporal o selecciónala en el desplegable. El módulo actualiza entonces el mapa de calor por cadena, el ranking de temas con más desacuerdo y la mezcla editorial de cada canal para ese día concreto."
+       data-en="Click any date on the time series or choose it from the dropdown. The module then updates the channel heatmap, the ranking of the most disputed topics, and each channel's editorial mix for that specific day.">
+      Haz clic sobre cualquier fecha de la serie temporal o selecciónala en el desplegable. El módulo actualiza entonces el mapa de calor por cadena, el ranking de temas con más desacuerdo y la mezcla editorial de cada canal para ese día concreto.
     </p>
 
     <div class="chart-container">
-      <h3>Coverage Composition Over Time</h3>
-      <p>
-        The interactive graph below displays the entropy time series of news coverage composition.
-        Each point represents the diversity level of a specific news program over time.
-        Click any point to explore the underlying topics covered during that period.
-        More details are available in the <a href="methodology.html">Methodology</a> section.
-      </p>
-      <iframe src="https://spanish-media-monitor-7458bc4bd3d9.herokuapp.com"></iframe>
+      <iframe
+        class="coverage-frame"
+        src="figures/coverage_explorer.html"
+        title="Explorador de acuerdo y desacuerdo editorial"
+        loading="lazy"></iframe>
     </div>
+
+    <p class="coverage-note"
+       data-es="Datos: SMM, dic. 2022 – sep. 2024. La etiqueta de los temas se construye a partir de los grupos de palabras detectados automáticamente y se muestra en una forma más legible para el usuario final. Más detalles sobre la construcción de este módulo en <a href='methodology.html'>Metodología</a>."
+       data-en="Data: SMM, Dec. 2022 – Sep. 2024. Topic labels are built from automatically detected word bundles and displayed in a more readable form for end users. More details about how this module is built are available in <a href='methodology.html'>Methodology</a>.">
+      Datos: SMM, dic. 2022 – sep. 2024. La etiqueta de los temas se construye a partir de los grupos de palabras detectados automáticamente y se muestra en una forma más legible para el usuario final. Más detalles sobre la construcción de este módulo en <a href="methodology.html">Metodología</a>.
+    </p>
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <p>
       <img src="logo.png" alt="SMM Logo Small">
-      &copy; 2025 <span>SMM</span> — Spanish Media Monitor
+      &copy; 2025 <span>SMM</span> — Spanish Media Monitor.
+      <span data-es="Datos bajo licencia" data-en="Data licensed under">Datos bajo licencia</span>
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license">CC BY 4.0</a>
     </p>
   </footer>
+
+  <script>
+    (function() {
+      const frame = document.querySelector('.coverage-frame');
+      if (!frame) return;
+
+      function resizeFrame() {
+        try {
+          const doc = frame.contentWindow.document;
+          const height = Math.max(
+            doc.body.scrollHeight,
+            doc.documentElement.scrollHeight
+          );
+          if (height) {
+            frame.style.height = `${height + 24}px`;
+          }
+        } catch (error) {
+          frame.style.height = '2080px';
+        }
+      }
+
+      frame.addEventListener('load', () => {
+        resizeFrame();
+        setTimeout(resizeFrame, 300);
+        setTimeout(resizeFrame, 1200);
+      });
+
+      window.addEventListener('resize', resizeFrame);
+    })();
+  </script>
+  <script src="lang.js"></script>
 
 </body>
 </html>
