@@ -24,7 +24,7 @@
   <!-- NAVIGATION -->
   <nav>
     <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
-    <a href="coverage.html" data-es="Acuerdo y Desacuerdo" data-en="Media Agreement">Acuerdo y Desacuerdo</a>
+    <a href="coverage.html" data-es="Agenda y Divergencia" data-en="Agenda &amp; Divergence">Agenda y Divergencia</a>
     <a href="mentions.html" data-es="Menciones Políticas" data-en="Political Mentions">Menciones Políticas</a>
     <a href="politicaltone.html" data-es="Tono Político" data-en="Political Tone">Tono Político</a>
     <a href="methodology.html" class="active" data-es="Metodología" data-en="Methodology">Metodología</a>
@@ -65,20 +65,16 @@
       </p>
     </div>
 
-    <!-- AGREEMENT/DISAGREEMENT SECTION (plain language) -->
+    <!-- AGENDA/DIVERGENCE SECTION (plain language) -->
     <div class="chart-container">
-      <h3 data-es="Cómo medimos el acuerdo y el desacuerdo entre cadenas" data-en="Measuring agreement and disagreement across channels">Cómo medimos el acuerdo y el desacuerdo entre cadenas</h3>
-      <p data-es="La nueva pestaña de 'Acuerdo y Desacuerdo' combina dos medidas distintas. La primera es un índice de acuerdo editorial basado en la entropía de la distribución temática diaria. Lo mostramos invertido para que su lectura sea más intuitiva: valores más altos significan más concentración en un conjunto parecido de temas y, por tanto, más acuerdo entre agendas. Esta serie sirve para localizar rápidamente los días en los que los informativos se parecieron más o menos entre sí."
-         data-en="The updated 'Media Agreement' tab combines two distinct measures. The first is an editorial agreement index based on the entropy of the daily topic distribution. We display it inverted so that it is easier to read: higher values mean more concentration around a similar set of topics and therefore more agreement across agendas. This time series helps locate the days when newscasts looked more or less alike.">
-        La nueva pestaña de "Acuerdo y Desacuerdo" combina dos medidas distintas. La primera es un índice de acuerdo editorial basado en la entropía de la distribución temática diaria. Lo mostramos invertido para que su lectura sea más intuitiva: valores más altos significan más concentración en un conjunto parecido de temas y, por tanto, más acuerdo entre agendas. Esta serie sirve para localizar rápidamente los días en los que los informativos se parecieron más o menos entre sí.
+      <h3 data-es="Entropía y desacuerdo entre canales" data-en="Entropy and cross-channel disagreement">Entropía y desacuerdo entre canales</h3>
+      <p data-es="En la pestaña de Agenda y Divergencia, ambas métricas se calculan a nivel de historia. La entropía agrupa primero la cobertura de todos los canales en un día y calcula qué proporción del tiempo total se dedica a cada historia. Si pocas historias concentran la mayor parte del tiempo, la entropía es baja; si el tiempo se reparte entre muchas historias, la entropía es alta."
+         data-en="In the Agenda &amp; Divergence tab, both metrics are computed at the story level. Entropy first pools coverage from all channels on a given day and calculates what share of total airtime is devoted to each story. If a small number of stories account for most airtime, entropy is low; if airtime is spread across many stories, entropy is high.">
+        En la pestaña de Agenda y Divergencia, ambas métricas se calculan a nivel de historia. La entropía agrupa primero la cobertura de todos los canales en un día y calcula qué proporción del tiempo total se dedica a cada historia. Si pocas historias concentran la mayor parte del tiempo, la entropía es baja; si el tiempo se reparte entre muchas historias, la entropía es alta.
       </p>
-      <p data-es="La segunda medida es el desacuerdo temático dentro de un día concreto. Para cada tema detectado automáticamente, calculamos qué porcentaje del tiempo político de cada cadena (los segmentos que mencionan a partidos o políticos) se dedica a ese tema. La diferencia entre la cadena que más y la que menos peso le da al mismo tema dentro de su propia agenda política es nuestra medida de desacuerdo: cuanto mayor es ese gap, más distintas son las prioridades editoriales; cuanto menor, más coinciden en lo que consideran noticia."
-         data-en="The second measure is topical disagreement within a specific day. For each automatically detected topic, we calculate what share of each channel's political airtime (segments that mention parties or politicians) is devoted to that topic. The gap between the channel that gives a topic the most and the least weight within its own political agenda is our measure of disagreement: the larger the gap, the more editorial priorities diverge; the smaller it is, the more they agree on what counts as news.">
-        La segunda medida es el desacuerdo temático dentro de un día concreto. Para cada tema detectado automáticamente, calculamos qué porcentaje del tiempo político de cada cadena (los segmentos que mencionan a partidos o políticos) se dedica a ese tema. La diferencia entre la cadena que más y la que menos peso le da al mismo tema dentro de su propia agenda política es nuestra medida de desacuerdo: cuanto mayor es ese gap, más distintas son las prioridades editoriales; cuanto menor, más coinciden en lo que consideran noticia.
-      </p>
-      <p data-es="La vista interactiva permite seleccionar una fecha y ver tres métrcias: un mapa de correlaciones que compara el peso de cada tema por cadena, un ranking de los temas donde más divergen y una mezcla editorial por canal para ese día."
-         data-en="The interactive view lets users select a date and inspect three layers at once: a heatmap comparing the weight of each topic by channel, a ranking of the topics where channels diverge most, and an editorial mix by channel for that day.">
-        La vista interactiva permite seleccionar una fecha y ver tres capas a la vez: un mapa de calor que compara el peso de cada tema por cadena, un ranking de los temas donde más divergen y una mezcla editorial por canal para ese día. Las etiquetas visibles de los temas no son nombres escritos manualmente uno a uno: se generan a partir de los grupos de palabras detectados automáticamente y se muestran en una forma más legible para el lector.
+      <p data-es="El desacuerdo entre canales se basa en la Jensen-Shannon Divergence: para cada canal construimos una distribución diaria de tiempo entre historias y luego comparamos esas distribuciones entre sí. La métrica es baja cuando los canales asignan proporciones parecidas de tiempo a las mismas historias, y alta cuando sus agendas se separan. Ambas métricas se muestran en una escala de 0 a 100."
+         data-en="Cross-channel disagreement is based on Jensen-Shannon Divergence: for each channel, we build a daily distribution of airtime across stories and then compare those distributions with each other. The metric is low when channels allocate similar proportions of airtime to the same stories, and high when their agendas diverge. Both metrics are shown on a 0 to 100 scale.">
+        El desacuerdo entre canales se basa en la Jensen-Shannon Divergence: para cada canal construimos una distribución diaria de tiempo entre historias y luego comparamos esas distribuciones entre sí. La métrica es baja cuando los canales asignan proporciones parecidas de tiempo a las mismas historias, y alta cuando sus agendas se separan. Ambas métricas se muestran en una escala de 0 a 100.
       </p>
     </div>
 

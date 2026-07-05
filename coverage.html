@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acuerdo y Desacuerdo entre Medios – SMM</title>
+  <title>Agenda y Divergencia – SMM</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" sizes="32x32" href="logo.png" type="image/png">
   <link rel="apple-touch-icon" href="logo.png">
@@ -34,7 +34,7 @@
 
   <nav>
     <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
-    <a href="coverage.html" class="active" data-es="Acuerdo y Desacuerdo" data-en="Media Agreement">Acuerdo y Desacuerdo</a>
+    <a href="coverage.html" class="active" data-es="Agenda y Divergencia" data-en="Agenda &amp; Divergence">Agenda y Divergencia</a>
     <a href="mentions.html" data-es="Menciones Políticas" data-en="Political Mentions">Menciones Políticas</a>
     <a href="politicaltone.html" data-es="Tono Político" data-en="Political Tone">Tono Político</a>
     <a href="methodology.html" data-es="Metodología" data-en="Methodology">Metodología</a>
@@ -42,26 +42,28 @@
   </nav>
 
   <div class="content">
-    <h2 data-es="Acuerdo y Desacuerdo entre Medios" data-en="Media Agreement &amp; Disagreement">Acuerdo y Desacuerdo entre Medios</h2>
+    <h2 data-es="Agenda y Divergencia" data-en="Agenda &amp; Divergence">Agenda y Divergencia</h2>
 
 
-    <p data-es="Haz clic sobre cualquier fecha de la serie temporal o selecciónala en el desplegable. El módulo actualiza entonces el mapa de calor por cadena, el ranking de temas con más desacuerdo y la mezcla editorial de cada canal para ese día concreto."
-       data-en="Click any date on the time series or choose it from the dropdown. The module then updates the channel heatmap, the ranking of the most disputed topics, and each channel's editorial mix for that specific day.">
-      Haz clic sobre cualquier fecha de la serie temporal o selecciónala en el desplegable. El módulo actualiza entonces el mapa de calor por cadena, el ranking de temas con más desacuerdo y la mezcla editorial de cada canal para ese día concreto.
+    <p data-es="Selecciona una fecha en la serie temporal o elige una desde el menú desplegable. El módulo actualizará las historias principales de ese día y mostrará cómo se repartió la atención entre los distintos canales. Puedes alternar entre dos métricas: Entropía, para ver si la agenda del día estuvo concentrada en pocas historias o repartida entre muchas; y Desacuerdo entre canales, para ver si los canales cubrieron las mismas historias o si cada uno dio prioridad a historias distintas."
+       data-en="Select a date in the time series or choose one from the dropdown menu. The module will update the main stories for that day and show how attention was distributed across channels. You can switch between two metrics: Entropy, to see whether the day's agenda was concentrated in a few stories or spread across many; and Cross-channel disagreement, to see whether channels covered the same stories or each gave priority to different stories.">
+      Selecciona una fecha en la serie temporal o elige una desde el menú desplegable. El módulo actualizará las historias principales de ese día y mostrará cómo se repartió la atención entre los distintos canales. Puedes alternar entre dos métricas: Entropía, para ver si la agenda del día estuvo concentrada en pocas historias o repartida entre muchas; y Desacuerdo entre canales, para ver si los canales cubrieron las mismas historias o si cada uno dio prioridad a historias distintas.
     </p>
 
     <div class="chart-container">
       <iframe
         class="coverage-frame"
-        src="figures/coverage_explorer.html"
-        title="Explorador de acuerdo y desacuerdo editorial"
+        src="https://spanish-media-monitor-7458bc4bd3d9.herokuapp.com"
+        data-local-src="http://127.0.0.1:8052/"
+        data-prod-src="https://spanish-media-monitor-7458bc4bd3d9.herokuapp.com"
+        title="Explorador de entropía y divergencia editorial"
         loading="lazy"></iframe>
     </div>
 
     <p class="coverage-note"
-       data-es="Datos: SMM, dic. 2022 – sep. 2024. La etiqueta de los temas se construye a partir de los grupos de palabras detectados automáticamente y se muestra en una forma más legible para el usuario final. Más detalles sobre la construcción de este módulo en <a href='methodology.html'>Metodología</a>."
-       data-en="Data: SMM, Dec. 2022 – Sep. 2024. Topic labels are built from automatically detected word bundles and displayed in a more readable form for end users. More details about how this module is built are available in <a href='methodology.html'>Methodology</a>.">
-      Datos: SMM, dic. 2022 – sep. 2024. La etiqueta de los temas se construye a partir de los grupos de palabras detectados automáticamente y se muestra en una forma más legible para el usuario final. Más detalles sobre la construcción de este módulo en <a href="methodology.html">Metodología</a>.
+       data-es="Datos: SMM, dic. 2022 – sep. 2024. Las etiquetas visibles de las historias se construyen a partir de grupos de palabras detectados automáticamente y se muestran en una forma más legible para el usuario final. Más detalles sobre la construcción de este módulo en <a href='methodology.html'>Metodología</a>."
+       data-en="Data: SMM, Dec. 2022 – Sep. 2024. Visible story labels are built from automatically detected word bundles and displayed in a more readable form for end users. More details about how this module is built are available in <a href='methodology.html'>Methodology</a>.">
+      Datos: SMM, dic. 2022 – sep. 2024. Las etiquetas visibles de las historias se construyen a partir de grupos de palabras detectados automáticamente y se muestran en una forma más legible para el usuario final. Más detalles sobre la construcción de este módulo en <a href="methodology.html">Metodología</a>.
     </p>
   </div>
 
@@ -78,6 +80,9 @@
     (function() {
       const frame = document.querySelector('.coverage-frame');
       if (!frame) return;
+
+      const isLocalPreview = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
+      frame.src = isLocalPreview ? frame.dataset.localSrc : frame.dataset.prodSrc;
 
       function resizeFrame() {
         try {

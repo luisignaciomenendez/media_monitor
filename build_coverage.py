@@ -121,7 +121,7 @@ chart_en_json = json.dumps(fig_en.to_plotly_json(), cls=PJE)
 
 NAV = """  <nav>
     <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
-    <a href="coverage.html" class="{cov}" data-es="Acuerdo y Desacuerdo" data-en="Media Agreement">Acuerdo y Desacuerdo</a>
+    <a href="coverage.html" class="{cov}" data-es="Agenda y Divergencia" data-en="Agenda &amp; Divergence">Agenda y Divergencia</a>
     <a href="mentions.html" data-es="Menciones Políticas" data-en="Political Mentions">Menciones Políticas</a>
     <a href="politicaltone.html" data-es="Tono Político" data-en="Political Tone">Tono Político</a>
     <a href="methodology.html" data-es="Metodología" data-en="Methodology">Metodología</a>
@@ -142,7 +142,7 @@ page = f"""<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acuerdo y Desacuerdo entre Medios – SMM</title>
+  <title>Agenda y Divergencia – SMM</title>
   <link rel="stylesheet" href="style.css">
 <link rel="icon" sizes="32x32" href="logo.png" type="image/png">
 <link rel="apple-touch-icon" href="logo.png">
@@ -161,10 +161,10 @@ page = f"""<!DOCTYPE html>
 
   <!-- MAIN CONTENT -->
   <div class="content">
-    <h2 data-es="Acuerdo y Desacuerdo entre Medios" data-en="Media Agreement &amp; Disagreement">Acuerdo y Desacuerdo entre Medios</h2>
-    <p data-es="Para cada tema de actualidad, calculamos qué porcentaje del tiempo político de cada cadena (es decir, de los segmentos que mencionan a partidos o políticos) se dedica a ese tema. En el gráfico, cada punto representa una cadena y la línea gris muestra el rango entre la cadena que más y la que menos peso le dio al mismo tema dentro de su propia agenda política. Cuanto más larga la línea, mayor es el desacuerdo sobre la importancia de esa noticia dentro de la cobertura política; cuanto más corta, mayor el acuerdo entre cadenas."
-       data-en="For each news topic, we calculate what share of each channel's political airtime (i.e. segments that mention parties or politicians) goes to that topic. In the chart, each dot represents a channel and the grey line shows the range between the channel that gives the topic the most and the least weight within its own political agenda. The longer the line, the bigger the disagreement about how newsworthy that story is within political coverage; the shorter it is, the more channels agree.">
-      Para cada tema de actualidad, calculamos qué porcentaje del tiempo político de cada cadena (es decir, de los segmentos que mencionan a partidos o políticos) se dedica a ese tema. En el gráfico, cada punto representa una cadena y la línea gris muestra el rango entre la cadena que más y la que menos peso le dio al mismo tema dentro de su propia agenda política. Cuanto más larga la línea, mayor es el desacuerdo sobre la importancia de esa noticia dentro de la cobertura política; cuanto más corta, mayor el acuerdo entre cadenas.
+    <h2 data-es="Agenda y Divergencia" data-en="Agenda &amp; Divergence">Agenda y Divergencia</h2>
+    <p data-es="Selecciona una fecha en la serie temporal o elige una desde el menú desplegable. El módulo actualizará las historias principales de ese día y mostrará cómo se repartió la atención entre los distintos canales. Puedes alternar entre dos métricas: Entropía, para ver si la agenda del día estuvo concentrada en pocas historias o repartida entre muchas; y Desacuerdo entre canales, para ver si los canales cubrieron las mismas historias o si cada uno dio prioridad a historias distintas."
+       data-en="Select a date in the time series or choose one from the dropdown menu. The module will update the main stories for that day and show how attention was distributed across channels. You can switch between two metrics: Entropy, to see whether the day's agenda was concentrated in a few stories or spread across many; and Cross-channel disagreement, to see whether channels covered the same stories or each gave priority to different stories.">
+      Selecciona una fecha en la serie temporal o elige una desde el menú desplegable. El módulo actualizará las historias principales de ese día y mostrará cómo se repartió la atención entre los distintos canales. Puedes alternar entre dos métricas: Entropía, para ver si la agenda del día estuvo concentrada en pocas historias o repartida entre muchas; y Desacuerdo entre canales, para ver si los canales cubrieron las mismas historias o si cada uno dio prioridad a historias distintas.
     </p>
 
     <div class="chart-container">
